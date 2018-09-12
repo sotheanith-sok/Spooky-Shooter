@@ -3,6 +3,7 @@ package com.mygdx.game.entities;
 import com.mygdx.game.components.Body;
 import com.mygdx.game.components.Sprite;
 
+//Testingasdfdafdfs ajsdlkfjalksdfjlkasjdlkfjlkzclvkzjlkcvjlzkcjvlkjzclkv
 public class GameObject {
     private Sprite sprite;
     private Body body;

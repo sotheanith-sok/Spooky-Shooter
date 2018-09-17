@@ -1,11 +1,17 @@
 package com.mygdx.game.entities;
 
+import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.game.components.BodyComponent;
+import com.mygdx.game.components.MovementComponent;
+import com.mygdx.game.components.PlayerVelocityStatComponent;
+import com.mygdx.game.components.TransformComponent;
 import com.mygdx.game.systems.PhysicsDebugSystem;
 import com.mygdx.game.systems.PhysicsSystem;
 import com.mygdx.game.systems.RenderingSystem;
@@ -102,6 +108,24 @@ public class Factory {
     public SpriteBatch getSpriteBatch() {
         return spriteBatch;
     }
+
+    /**
+     * Call this method to create Player entity
+     * @return a player.
+     */
+   public Entity createPlayer() {
+      Entity entity=engine.createEntity();
+      entity.add(engine.createComponent(MovementComponent.class));
+      entity.add(engine.createComponent(PlayerVelocityStatComponent.class));
+      entity.add(engine.createComponent(TransformComponent.class));
+      entity.add(engine.createComponent(BodyComponent.class));
+      BodyDef bodyDef = new BodyDef();
+      bodyDef.type = BodyDef.BodyType.KinematicBody;
+      bodyDef.position.set(0, 0);
+      entity.getComponent(BodyComponent.class).body = world.createBody(bodyDef);
+      entity.getComponent(BodyComponent.class).body.setUserData(entity);
+      return entity;
+   }
 
     /**
      * Access Orthographic Camera  for this game.

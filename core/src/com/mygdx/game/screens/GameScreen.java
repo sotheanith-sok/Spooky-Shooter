@@ -30,7 +30,6 @@ public class GameScreen extends ScreenAdapter {
    public GameScreen(Game myGame) {
       this.myGame = myGame;
       engine=Factory.getFactory().getEngine();
-      engine.addSystem(new PhysicsDebugSystem());
    }
 
    private PooledEngine engine;

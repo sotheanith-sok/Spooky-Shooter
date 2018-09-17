@@ -1,10 +1,8 @@
 package com.mygdx.game.systems;
 
-import com.badlogic.ashley.core.Component;
-import com.badlogic.ashley.core.ComponentMapper;
-import com.badlogic.ashley.core.Entity;
-import com.badlogic.ashley.core.Family;
+import com.badlogic.ashley.core.*;
 import com.badlogic.ashley.systems.SortedIteratingSystem;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.game.components.BodyComponent;
@@ -32,15 +30,14 @@ public class RenderingSystem extends SortedIteratingSystem {
     /**
      * Constructor
      */
-    public RenderingSystem(){
+    public RenderingSystem(SpriteBatch spriteBatch, OrthographicCamera camera){
         super(Family.all(BodyComponent.class,TextureComponent.class).get(), new LayerComparator());
 
         transformMapper=ComponentMapper.getFor(TransformComponent.class);
         textureMapper=ComponentMapper.getFor(TextureComponent.class);
 
-        spriteBatch=Factory.getFactory().getSpriteBatch();
-
-        camera=Factory.getFactory().getCamera();
+         this.spriteBatch=spriteBatch;
+         this.camera=camera;
     }
 
     /**

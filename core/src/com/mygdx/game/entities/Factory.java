@@ -12,6 +12,7 @@ import com.mygdx.game.components.BodyComponent;
 import com.mygdx.game.components.MovementComponent;
 import com.mygdx.game.components.PlayerVelocityStatComponent;
 import com.mygdx.game.components.TransformComponent;
+import com.mygdx.game.systems.CollisionCallbackSystem;
 import com.mygdx.game.systems.PhysicsDebugSystem;
 import com.mygdx.game.systems.PhysicsSystem;
 import com.mygdx.game.systems.RenderingSystem;
@@ -52,10 +53,11 @@ public class Factory {
      * @return Factory object
      */
     public static Factory getFactory(){
-        if(factory==null){
+       if(factory==null){
             factory=new Factory();
         }
         return factory;
+
     }
 
     /**
@@ -65,8 +67,6 @@ public class Factory {
        assetManager=new AssetManager(); //Declare AssetManager
        loadAssets();// Load assets
 
-
-
         world=new World(Vector2.Zero,true);//Declare World
 
         spriteBatch=new SpriteBatch();//Declare SpriteBatch
@@ -75,7 +75,7 @@ public class Factory {
         camera.position.set(Utilities.FRUSTUM_WIDTH/2f,Utilities.FRUSTUM_HEIGHT/2f,0);
 
         engine=new PooledEngine(); //Ashely engine
-        loadSystemsIntoEngine();
+        loadSystemsIntoEngine(); //Load systems into engine
     }
 
     /**
@@ -147,8 +147,9 @@ public class Factory {
      * Load systems into the Ashley engine.
      */
     private void loadSystemsIntoEngine(){
-        engine.addSystem(new RenderingSystem());
-        engine.addSystem(new PhysicsSystem());
-        engine.addSystem(new PhysicsDebugSystem());
+        engine.addSystem(new RenderingSystem(spriteBatch,camera));
+        engine.addSystem(new PhysicsSystem(world));
+        engine.addSystem(new PhysicsDebugSystem(world,camera));
+        new CollisionCallbackSystem(world);
     }
 }

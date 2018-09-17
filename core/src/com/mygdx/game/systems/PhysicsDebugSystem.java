@@ -14,11 +14,11 @@ public class PhysicsDebugSystem extends IteratingSystem {
     private World world;
     private OrthographicCamera camera;
 
-    public PhysicsDebugSystem(){
+    public PhysicsDebugSystem(World world, OrthographicCamera camera){
         super(Family.all().get());
         box2DDebugRenderer=new Box2DDebugRenderer();
-        world=Factory.getFactory().getWorld();
-        camera=Factory.getFactory().getCamera();
+        this.world=world;
+        this.camera=camera;
 
     }
 

@@ -25,7 +25,7 @@ public class PhysicsSystem extends IntervalSystem {
 
     ImmutableArray<Entity> entities;
 
-    public PhysicsSystem(){
+    public PhysicsSystem(World world){
         super(Utilities.MAX_STEP_TIME);
 
         //Mappers
@@ -33,7 +33,7 @@ public class PhysicsSystem extends IntervalSystem {
         tm=ComponentMapper.getFor(TransformComponent.class);
 
         //World
-        world=Factory.getFactory().getWorld();
+       this.world=world;
     }
 
     @Override

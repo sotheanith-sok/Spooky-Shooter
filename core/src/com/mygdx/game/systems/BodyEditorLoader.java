@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Loads the collision fixtures defined with the Physics Body Editor
+ * Loads the collision fixtures defined with the PhysicsSystem BodyComponent Editor
  * application. You only need to give it a body and the corresponding fixture
  * name, and it will attach these fixtures to your body.
  *

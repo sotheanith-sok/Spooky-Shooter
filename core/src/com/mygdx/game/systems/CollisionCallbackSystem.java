@@ -4,17 +4,16 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.physics.box2d.*;
 import com.mygdx.game.components.CollisionCallbackComponent;
-import com.mygdx.game.components.Scripts.CollisionCallback;
 
 public class CollisionCallbackSystem implements ContactListener {
 
    private World world;
    private ComponentMapper<CollisionCallbackComponent> ccc;
 
-   public CollisionCallbackSystem(World world){
-      this.world=world;
+   public CollisionCallbackSystem(World world) {
+      this.world = world;
       world.setContactListener(this);
-      ccc=ComponentMapper.getFor(CollisionCallbackComponent.class);
+      ccc = ComponentMapper.getFor(CollisionCallbackComponent.class);
    }
 
    /**
@@ -24,12 +23,17 @@ public class CollisionCallbackSystem implements ContactListener {
     */
    @Override
    public void beginContact(Contact contact) {
-      Fixture fixtureA=contact.getFixtureA();
-      Entity entityA= (Entity) fixtureA.getBody().getUserData();
-      Fixture fixtureB=contact.getFixtureB();
-      Entity entityB= (Entity) fixtureB.getBody().getUserData();
-      ccc.get(entityA).beginContactCallback.run(entityA,entityB);
-      ccc.get(entityB).beginContactCallback.run(entityB,entityA);
+      Fixture fixtureA = contact.getFixtureA();
+      Entity entityA = (Entity) fixtureA.getBody().getUserData();
+      Fixture fixtureB = contact.getFixtureB();
+      Entity entityB = (Entity) fixtureB.getBody().getUserData();
+
+      if (ccc.get(entityA).beginContactCallback != null) {
+         ccc.get(entityA).beginContactCallback.run(entityA, entityB);
+      }
+      if (ccc.get(entityB).beginContactCallback != null) {
+         ccc.get(entityB).beginContactCallback.run(entityB, entityA);
+      }
    }
 
    /**
@@ -39,12 +43,16 @@ public class CollisionCallbackSystem implements ContactListener {
     */
    @Override
    public void endContact(Contact contact) {
-      Fixture fixtureA=contact.getFixtureA();
-      Entity entityA= (Entity) fixtureA.getBody().getUserData();
-      Fixture fixtureB=contact.getFixtureB();
-      Entity entityB= (Entity) fixtureB.getBody().getUserData();
-      ccc.get(entityA).endContactCallback.run(entityA,entityB);
-      ccc.get(entityB).endContactCallback.run(entityB,entityA);
+      Fixture fixtureA = contact.getFixtureA();
+      Entity entityA = (Entity) fixtureA.getBody().getUserData();
+      Fixture fixtureB = contact.getFixtureB();
+      Entity entityB = (Entity) fixtureB.getBody().getUserData();
+      if (ccc.get(entityA).endContactCallback != null) {
+         ccc.get(entityA).endContactCallback.run(entityA, entityB);
+      }
+      if (ccc.get(entityB).endContactCallback != null) {
+         ccc.get(entityB).endContactCallback.run(entityB, entityA);
+      }
    }
 
    @Override

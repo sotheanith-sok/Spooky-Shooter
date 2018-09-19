@@ -8,23 +8,21 @@ import com.badlogic.ashley.systems.IntervalSystem;
 import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.mygdx.game.components.BodyComponent;
 import com.mygdx.game.components.MovementComponent;
-import com.mygdx.game.components.TransformComponent;
 
 public class PlayerControlSystem extends IntervalSystem {
-   private ComponentMapper<MovementComponent> mc;
    ImmutableArray<Entity> entities;
+   private ComponentMapper<MovementComponent> mc;
 
 
    public PlayerControlSystem(float interval) {
       super(interval);
-      mc=ComponentMapper.getFor(MovementComponent.class);
+      mc = ComponentMapper.getFor(MovementComponent.class);
    }
 
    @Override
-   public void addedToEngine(Engine engine){
-      entities=engine.getEntitiesFor(Family.all(MovementComponent.class).get());
+   public void addedToEngine(Engine engine) {
+      entities = engine.getEntitiesFor(Family.all(MovementComponent.class).get());
    }
 
    @Override

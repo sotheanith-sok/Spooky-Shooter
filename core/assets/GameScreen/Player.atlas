@@ -1,0 +1,13 @@
+
+Player.png
+size: 512,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Player_0
+  rotate: false
+  xy: 2, 2
+  size: 458, 262
+  orig: 523, 336
+  offset: 38, 38
+  index: 0

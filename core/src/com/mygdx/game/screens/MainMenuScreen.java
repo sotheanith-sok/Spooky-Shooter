@@ -11,15 +11,15 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
  */
 public class MainMenuScreen extends ScreenAdapter {
 
+   SpriteBatch batch;
    /**
-    *This is the reference to the game object.
+    * This is the reference to the game object.
     */
    private Game myGame;
 
-   SpriteBatch batch;
-
    /**
-    *Constructor for this screen
+    * Constructor for this screen
+    *
     * @param myGame
     */
    public MainMenuScreen(Game myGame) {
@@ -28,7 +28,8 @@ public class MainMenuScreen extends ScreenAdapter {
    }
 
    /**
-    *This the main loop of this screen.
+    * This the main loop of this screen.
+    *
     * @param delta time between current frame and last frame
     */
    @Override

@@ -9,14 +9,15 @@ import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.mygdx.game.components.MovementComponent;
+import com.mygdx.game.utilities.Utilities;
 
 public class PlayerControlSystem extends IntervalSystem {
    ImmutableArray<Entity> entities;
    private ComponentMapper<MovementComponent> mc;
 
 
-   public PlayerControlSystem(float interval) {
-      super(interval);
+   public PlayerControlSystem() {
+      super(Utilities.MAX_STEP_TIME);
       mc = ComponentMapper.getFor(MovementComponent.class);
    }
 
@@ -29,15 +30,18 @@ public class PlayerControlSystem extends IntervalSystem {
    protected void updateInterval() {
       for (Entity entity : entities) {
          MovementComponent movementComponent = mc.get(entity);
-         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+         if (Gdx.input.isKeyPressed(Input.Keys.LEFT))
             movementComponent.moveLeft = true;
-         } else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
             movementComponent.moveRight = true;
-         } else if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+         if (Gdx.input.isKeyPressed(Input.Keys.UP))
             movementComponent.moveUp = true;
-         } else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+         if (Gdx.input.isKeyPressed(Input.Keys.DOWN))
             movementComponent.moveDown = true;
-         } else {
+         if (!Gdx.input.isKeyPressed(Input.Keys.LEFT) &&
+             !Gdx.input.isKeyPressed(Input.Keys.RIGHT) &&
+             !Gdx.input.isKeyPressed(Input.Keys.UP) &&
+             !Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             movementComponent.moveLeft = false;
             movementComponent.moveRight = false;
             movementComponent.moveUp = false;

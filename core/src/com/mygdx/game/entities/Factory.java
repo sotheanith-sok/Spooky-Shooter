@@ -15,6 +15,10 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.components.*;
 import com.mygdx.game.systems.*;
+import com.mygdx.game.systems.CollisionCallbackSystem;
+import com.mygdx.game.systems.PhysicsDebugSystem;
+import com.mygdx.game.systems.PhysicsSystem;
+import com.mygdx.game.systems.RenderingSystem;
 import com.mygdx.game.utilities.Utilities;
 
 public class Factory {
@@ -140,11 +144,14 @@ public class Factory {
       entity.add(engine.createComponent(TransformComponent.class));
       entity.add(engine.createComponent(BodyComponent.class));
       entity.add(engine.createComponent(TextureComponent.class));
-      entity.getComponent(TextureComponent.class).textureRegion = createTexture("GameScreen/Player.atlas", "Player_0", 0);
-      entity.getComponent(BodyComponent.class).body = createBody("Player", 10);
-      entity.getComponent(TransformComponent.class).scale.x = 1;
-      entity.getComponent(TransformComponent.class).scale.y = 0.5f;
+      entity.add(engine.createComponent(IsPlayerComponent.class));
 
+      entity.getComponent(TextureComponent.class).textureRegion = createTexture("GameScreen/Player.atlas", "Player_1", 0);
+      entity.getComponent(BodyComponent.class).body = createBody("Player_1", 1);
+      entity.getComponent(TransformComponent.class).scale.x = 1f;
+      entity.getComponent(TransformComponent.class).scale.y = 1f;
+      entity.add(engine.createComponent(CollisionCallbackComponent.class));
+      entity.getComponent(BodyComponent.class).body.setUserData(entity);
       return entity;
    }
 
@@ -173,6 +180,8 @@ public class Factory {
       engine.addSystem(new RenderingSystem(spriteBatch, camera));
       engine.addSystem(new PhysicsSystem(world));
       engine.addSystem(new PhysicsDebugSystem(world, camera));
+      engine.addSystem(new PlayerControlSystem());
+      engine.addSystem(new PlayerVelocitySystem());
       new CollisionCallbackSystem(world);
    }
 

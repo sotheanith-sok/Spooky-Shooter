@@ -6,8 +6,15 @@ filter: Nearest,Nearest
 repeat: none
 Player_0
   rotate: false
-  xy: 2, 2
+  xy: 2, 14
   size: 458, 262
-  orig: 523, 336
-  offset: 38, 38
+  orig: 458, 262
+  offset: 0, 0
+  index: 0
+Player_1
+  rotate: false
+  xy: 2, 2
+  size: 10, 10
+  orig: 10, 10
+  offset: 0, 0
   index: 0

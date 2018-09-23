@@ -42,7 +42,7 @@ public class PhysicsSystem extends IntervalSystem {
     */
    @Override
    protected void updateInterval() {
-      world.step(Utilities.MAX_STEP_TIME, 6, 2);
+      world.step(Utilities.MAX_STEP_TIME, Utilities.VELOCITY_ITERATIONS, Utilities.POSITION_ITERATIONS);
       for (Entity entity : entities) {
          TransformComponent transformComponent = tm.get(entity);
          BodyComponent bodyComponent = bm.get(entity);

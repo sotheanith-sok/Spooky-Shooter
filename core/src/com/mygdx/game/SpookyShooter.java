@@ -12,14 +12,14 @@ import com.mygdx.game.screens.TitleScreen;
  * @author Agile Whisperers
  * @version 0.0.1
  */
-public class SpookyShooter extends Game {
+public class SpookyShooter extends Game implements Shooter {
 
    /**
     * Called when the {@link Application} is first created.
     */
    @Override
    public void create() {
-      setScreen(new GameScreen(this));
+      setScreen(new TitleScreen(this));
    }
 
    /**

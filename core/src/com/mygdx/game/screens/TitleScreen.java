@@ -7,6 +7,7 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.mygdx.game.Shooter;
 import com.mygdx.game.SpookyShooter;
 
 /**
@@ -29,7 +30,7 @@ public class TitleScreen extends ScreenAdapter {
    public TitleScreen(Game myGame) {
       this.myGame = myGame;
       batch = new SpriteBatch();
-      img = new Texture("firstscreen.jpg");
+      img = new Texture("GameScreen/Gfx/firstscreen.jpg");
    }
 
    /**
@@ -46,7 +47,7 @@ public class TitleScreen extends ScreenAdapter {
       batch.end();
       if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
          System.out.println("Key press captured");
-         ((SpookyShooter) myGame).changeScreen(2);
+         ((Shooter) myGame).changeScreen(2);
       }
    }
 }

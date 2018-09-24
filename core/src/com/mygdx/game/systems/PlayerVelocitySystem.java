@@ -38,16 +38,9 @@ public class PlayerVelocitySystem extends IntervalSystem {
             BodyComponent bC= bm.get(entity);
             MovementComponent mC = mm.get(entity);
             PlayerVelocityStatComponent pVC = pm.get(entity);
-            if(mC.moveLeft)
-                bC.body.setLinearVelocity(-pVC.movingSpeed, bC.body.getLinearVelocity().y);
-            if(mC.moveRight)
-                bC.body.setLinearVelocity( pVC.movingSpeed, bC.body.getLinearVelocity().y);
-            if(mC.moveUp)
-                bC.body.setLinearVelocity(bC.body.getLinearVelocity().x,  pVC.movingSpeed);
-            if(mC.moveDown)
-                bC.body.setLinearVelocity(bC.body.getLinearVelocity().x, -pVC.movingSpeed);
-            if (!mC.moveLeft && !mC.moveRight && !mC.moveUp && !mC.moveDown)
-               bC.body.setLinearVelocity(0, 0);
+            bC.body.setLinearVelocity(
+            (mC.moveRight ? pVC.movingSpeed : 0) - (mC.moveLeft ? pVC.movingSpeed : 0),
+            (mC.moveUp    ? pVC.movingSpeed : 0) - (mC.moveDown ? pVC.movingSpeed : 0));
         }
     }
 }

@@ -14,7 +14,7 @@ import java.util.Scanner;
  * @author Agile Whisperers
  * @version 0.0.1
  */
-public class TestShooter extends Game {
+public class TestShooter extends Game implements Shooter {
 
     /**
      * Called when the {@link Application} is first created.

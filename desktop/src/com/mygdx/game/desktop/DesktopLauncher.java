@@ -16,6 +16,5 @@ public class DesktopLauncher {
 		config.allowSoftwareMode = true;
 		config.x = -1;
 		config.y = -1;
-		config.foregroundFPS = 60;
 	}
 }

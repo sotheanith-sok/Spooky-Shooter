@@ -8,6 +8,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Interpolation;
 import com.mygdx.game.components.BodyComponent;
 import com.mygdx.game.components.TextureComponent;
 import com.mygdx.game.components.TransformComponent;
@@ -24,6 +25,7 @@ public class RenderingSystem extends SortedIteratingSystem {
    private ComponentMapper<TextureComponent> textureMapper;
    private OrthographicCamera camera;
 
+   private float accumulator;
    /**
     * SpriteBatch uses to draw.
     */
@@ -40,6 +42,7 @@ public class RenderingSystem extends SortedIteratingSystem {
 
       this.spriteBatch = spriteBatch;
       this.camera = camera;
+      accumulator=0f;
    }
 
    @Override
@@ -50,7 +53,14 @@ public class RenderingSystem extends SortedIteratingSystem {
       camera.update();
       spriteBatch.setProjectionMatrix(camera.combined);
       spriteBatch.enableBlending();
-      super.update(deltaTime);
+
+      float frameTime=Math.min(deltaTime,0.25f);
+      accumulator+=deltaTime;
+      while (accumulator>=Utilities.MAX_STEP_TIME){
+          accumulator-=Utilities.MAX_STEP_TIME;
+      }
+
+      super.update(accumulator/deltaTime);
    }
 
    /**
@@ -71,8 +81,8 @@ public class RenderingSystem extends SortedIteratingSystem {
          float originX = width / 2f;
          float originY = height / 2f;
          spriteBatch.draw(textureComponent.textureRegion,
-                 transformComponent.position.x - originX,
-                 transformComponent.position.y - originY,
+                 Interpolation.linear.apply(transformComponent.previousPosition.x,transformComponent.position.x,deltaTime) - originX,
+                 Interpolation.linear.apply(transformComponent.previousPosition.y,transformComponent.position.y,deltaTime) - originY,
                  originX,
                  originY,
                  width,

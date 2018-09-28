@@ -6,6 +6,7 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IntervalSystem;
 import com.badlogic.ashley.utils.ImmutableArray;
+import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.components.BodyComponent;
 import com.mygdx.game.components.MovementComponent;
 import com.mygdx.game.components.PlayerVelocityStatComponent;

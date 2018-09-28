@@ -4,7 +4,9 @@ import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.mygdx.game.entities.Factory;
+import com.mygdx.game.ui.IngameOverlay;
 
 /**
  * This is the game screen. It has access to all the game play that will occur.
@@ -12,6 +14,8 @@ import com.mygdx.game.entities.Factory;
 public class GameScreen extends ScreenAdapter {
 
    SpriteBatch batch;
+   IngameOverlay ui;
+   float count=0;
    /**
     * This is the reference to the game object.
     */
@@ -26,6 +30,7 @@ public class GameScreen extends ScreenAdapter {
    public GameScreen(Game myGame) {
       this.myGame = myGame;
       engine = Factory.getFactory().getEngine();
+      ui=new IngameOverlay(4);
    }
 
    /**
@@ -36,6 +41,9 @@ public class GameScreen extends ScreenAdapter {
    @Override
    public void render(float delta) {
       engine.update(delta);
+      count+=delta*MathUtils.random(1,100);
+      ui.updateScore(MathUtils.random(0,3),  count);
+      ui.draw();
    }
 
 }

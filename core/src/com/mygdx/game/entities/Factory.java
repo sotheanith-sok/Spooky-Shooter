@@ -63,6 +63,7 @@ public class Factory {
    /**
     * Default Constructor
     */
+
    private Factory() {
       assetManager = new AssetManager(); //Declare AssetManager
       loadAssets();// Load assets
@@ -80,8 +81,6 @@ public class Factory {
       engine = new PooledEngine(); //Ashely engine
       loadSystemsIntoEngine(); //Load systems into engine
       createEntities();
-
-
    }
 
    /**
@@ -148,10 +147,11 @@ public class Factory {
 
       entity.getComponent(TextureComponent.class).textureRegion = createTexture("GameScreen/Player.atlas", "Player_1", 0);
       entity.getComponent(BodyComponent.class).body = createBody("Player_1", 1);
-      entity.getComponent(TransformComponent.class).scale.x = 1f;
-      entity.getComponent(TransformComponent.class).scale.y = 1f;
+      entity.getComponent(TransformComponent.class).scale.x = 10f;
+      entity.getComponent(TransformComponent.class).scale.y = 10f;
       entity.add(engine.createComponent(CollisionCallbackComponent.class));
       entity.getComponent(BodyComponent.class).body.setUserData(entity);
+      entity.getComponent(PlayerVelocityStatComponent.class).movingSpeed=20f;
       return entity;
    }
 
@@ -182,6 +182,7 @@ public class Factory {
       engine.addSystem(new PhysicsDebugSystem(world, camera));
       engine.addSystem(new PlayerControlSystem());
       engine.addSystem(new PlayerVelocitySystem());
+      engine.addSystem(new Box2dBodyCleaningSystem(world));
       new CollisionCallbackSystem(world);
    }
 

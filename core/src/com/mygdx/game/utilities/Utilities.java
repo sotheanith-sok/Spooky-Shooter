@@ -30,8 +30,26 @@ public class Utilities {
        return meterValue*PPM;
     }
 
-    //Use in
+
     public static final float MAX_STEP_TIME=1/300f;
     public static final int VELOCITY_ITERATIONS = 6;
     public static final int POSITION_ITERATIONS = 2;
+
+    //Collision Filter
+   //CategoryBits of entity
+   public static final short CATEGORY_PLAYER = 0x001; //1
+   public static final short CATEGORY_ENEMY = 0x002; //10
+   public static final short CATEGORY_PLAYER_PROJECTILE=0x004; //100
+   public static final short CATEGORY_ENEMY_PROJECTILE=0x010; //1000
+   public static final short CATEGORY_POWERUP=0x020; //10000
+   public static final short CATEGORY_ENVIRONMENT= 0x040; //100000
+
+   //MaskingBits of that entity
+   public static final short MASK_PLAYER=~CATEGORY_PLAYER & ~CATEGORY_PLAYER_PROJECTILE; //Player can collide with anything that isn't player or player's projectile.
+   public static final short MASK_PLAYER_PROJECTILE= CATEGORY_ENEMY; //Player's projectile only collide with enemy
+   public static final short MASK_ENEMY= CATEGORY_PLAYER | CATEGORY_PLAYER_PROJECTILE; // Enemy can collide with player and player's projectile
+   public static final short MASK_ENEMY_PROJECTILE = CATEGORY_PLAYER; //Enemy's projectile can collide with player
+   public static final short MASK_POWERUP=CATEGORY_PLAYER; // Powerup can collide with player
+   public static final short MASK_ENVIRONMENT = -1; // ENVIRONMENT can collide with everything.
+
 }

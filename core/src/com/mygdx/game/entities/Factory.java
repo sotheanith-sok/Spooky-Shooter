@@ -9,10 +9,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.FixtureDef;
-import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.physics.box2d.*;
+import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.components.*;
 import com.mygdx.game.systems.*;
 import com.mygdx.game.systems.CollisionCallbackSystem;
@@ -20,6 +18,8 @@ import com.mygdx.game.systems.PhysicsDebugSystem;
 import com.mygdx.game.systems.PhysicsSystem;
 import com.mygdx.game.systems.RenderingSystem;
 import com.mygdx.game.utilities.Utilities;
+
+import javax.swing.*;
 
 public class Factory {
 
@@ -221,5 +221,22 @@ public class Factory {
     */
    public void createEntities() {
       engine.addEntity(createPlayer());
+   }
+
+
+   /**
+    * Apply collision filter to this body
+    * @param body which body to apply to
+    * @param categoryBits which category is this body belong to. LOOK AT UTILITIES for more detail.
+    * @param maskingBits whiich category should this body collide with. LOOK AT UTILITIES for more detail.
+    */
+   public void applyCollisionFilter(Body body, short categoryBits, short maskingBits){
+      Array<Fixture> fixtures =  body.getFixtureList();
+      for (Fixture fixture : fixtures){
+         Filter filter= fixture.getFilterData();
+         filter.categoryBits=categoryBits;
+         filter.maskBits=maskingBits;
+         fixture.setFilterData(filter);
+      }
    }
 }

@@ -47,7 +47,7 @@ public class TitleScreen extends ScreenAdapter {
       batch.end();
       if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
          System.out.println("Key press captured");
-         ((Shooter) myGame).changeScreen(2);
+         ((Shooter) myGame).changeScreen(2, 0);
       }
    }
 }

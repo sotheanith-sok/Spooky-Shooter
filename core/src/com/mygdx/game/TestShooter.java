@@ -26,14 +26,14 @@ public class TestShooter extends Game implements Shooter {
                 "\n2. Main Menu" +
                 "\n3. Game" +
                 "\n4. Game Ogre Screen");
-        changeScreen(new Scanner(System.in).nextInt());
+        changeScreen(new Scanner(System.in).nextInt(), 0);
     }
 
     /**
      * This function allows screen to control which screen it will be translate to.
      * @param choice
      */
-    public void changeScreen(int choice) {
+    public void changeScreen(int choice, int playerCount) {
         switch (choice) {
             case 1:
                 setScreen(new TitleScreen(this));
@@ -42,7 +42,7 @@ public class TestShooter extends Game implements Shooter {
                 setScreen(new MainMenuScreen(this));
                 break;
             case 3:
-                setScreen(new GameScreen(this));
+                setScreen(new GameScreen(this, 0));
                 break;
             case 4:
                 setScreen(new GameOverScreen(this));

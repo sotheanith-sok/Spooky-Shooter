@@ -48,12 +48,12 @@ public class MainMenuScreen extends ScreenAdapter {
       if (Gdx.input.isKeyJustPressed(Input.Keys.X) ||
           Gdx.input.isKeyJustPressed(Input.Keys.BUTTON_X)) {
          System.out.println("Key press captured");
-         ((Shooter) myGame).changeScreen(3);
+         ((Shooter) myGame).changeScreen(3, 1);
       }
       if (Gdx.input.isKeyJustPressed(Input.Keys.B) ||
           Gdx.input.isKeyJustPressed(Input.Keys.BUTTON_B)) {
          System.out.println("Key press captured");
-         ((Shooter) myGame).changeScreen(3);
+         ((Shooter) myGame).changeScreen(3, 2);
       }
    }
 }

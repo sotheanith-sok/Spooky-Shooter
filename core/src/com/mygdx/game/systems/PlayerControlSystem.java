@@ -21,6 +21,7 @@ public class PlayerControlSystem extends IntervalSystem {
    public PlayerControlSystem() {
       super(Utilities.MAX_STEP_TIME);
       mm = ComponentMapper.getFor(MovementComponent.class);
+      im = ComponentMapper.getFor(IsPlayerComponent.class);
    }
 
    @Override
@@ -32,12 +33,23 @@ public class PlayerControlSystem extends IntervalSystem {
    protected void updateInterval() {
       for (Entity entity : entities) {
          MovementComponent mc = mm.get(entity);
-         mc.moveLeft  = Gdx.input.isKeyPressed(Input.Keys.LEFT);
-         mc.moveRight = Gdx.input.isKeyPressed(Input.Keys.RIGHT);
-         mc.moveUp    = Gdx.input.isKeyPressed(Input.Keys.UP);
-         mc.moveDown  = Gdx.input.isKeyPressed(Input.Keys.DOWN);
-         mc.shot      = Gdx.input.isKeyJustPressed(Input.Keys.SPACE) ||
-                        Gdx.input.isKeyJustPressed(Input.Keys.BUTTON_R1);
+         IsPlayerComponent ic = im.get(entity);
+         if(ic.isPlayer0) {
+            mc.moveLeft = Gdx.input.isKeyPressed(Input.Keys.LEFT);
+            mc.moveRight = Gdx.input.isKeyPressed(Input.Keys.RIGHT);
+            mc.moveUp = Gdx.input.isKeyPressed(Input.Keys.UP);
+            mc.moveDown = Gdx.input.isKeyPressed(Input.Keys.DOWN);
+            mc.shot = Gdx.input.isKeyPressed(Input.Keys.SPACE) ||
+                    Gdx.input.isKeyPressed(Input.Keys.BUTTON_R1);
+         }
+         else if(ic.isPlayer1) {
+            mc.moveLeft = Gdx.input.isKeyPressed(Input.Keys.A);
+            mc.moveRight = Gdx.input.isKeyPressed(Input.Keys.D);
+            mc.moveUp = Gdx.input.isKeyPressed(Input.Keys.W);
+            mc.moveDown = Gdx.input.isKeyPressed(Input.Keys.S);
+            mc.shot = Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) ||
+                    Gdx.input.isKeyPressed(Input.Keys.CONTROL_LEFT);
+         }
       }
    }
 }

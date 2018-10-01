@@ -19,14 +19,14 @@ public class SpookyShooter extends Game implements Shooter {
     */
    @Override
    public void create() {
-      setScreen(new GameScreen(this));
+      setScreen(new TitleScreen(this));
    }
 
    /**
     * This function allows screen to control which screen it will be translate to.
     * @param choice
     */
-   public void changeScreen(int choice) {
+   public void changeScreen(int choice, int playerCount) {
       switch (choice) {
          case 1:
             setScreen(new TitleScreen(this));
@@ -35,7 +35,7 @@ public class SpookyShooter extends Game implements Shooter {
             setScreen(new MainMenuScreen(this));
             break;
          case 3:
-            setScreen(new GameScreen(this));
+            setScreen(new GameScreen(this, playerCount));
             break;
          case 4:
             setScreen(new GameOverScreen(this));

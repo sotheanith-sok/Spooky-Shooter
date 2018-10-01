@@ -80,7 +80,6 @@ public class Factory {
 
       engine = new PooledEngine(); //Ashely engine
       loadSystemsIntoEngine(); //Load systems into engine
-      createEntities();
    }
 
    /**
@@ -136,7 +135,7 @@ public class Factory {
     *
     * @return a player.
     */
-   public Entity createPlayer() {
+   public Entity createPlayer(String player, float posx, float posy, int playerNum) {
       Entity entity = engine.createEntity();
       entity.add(engine.createComponent(MovementComponent.class));
       entity.add(engine.createComponent(PlayerVelocityStatComponent.class));
@@ -145,9 +144,27 @@ public class Factory {
       entity.add(engine.createComponent(TextureComponent.class));
       entity.add(engine.createComponent(IsPlayerComponent.class));
 
+      switch(playerNum) {
+         case 0:
+            entity.getComponent(IsPlayerComponent.class).isPlayer0 = true;
+            break;
+         case 1:
+            entity.getComponent(IsPlayerComponent.class).isPlayer1 = true;
+            break;
+         case 2:
+            entity.getComponent(IsPlayerComponent.class).isPlayer2 = true;
+            break;
+         case 3:
+            entity.getComponent(IsPlayerComponent.class).isPlayer3 = true;
+            break;
+         default:
+            System.out.println("Invalid Player Number at Factory");
+            break;
+      }
+
       entity.add(engine.createComponent(BulletVelocityStatComponent.class));
-      entity.getComponent(TextureComponent.class).textureRegion = createTexture("GameScreen/Player.atlas", "Player_1", 0);
-      entity.getComponent(BodyComponent.class).body = createBody("Player_1", 10, 10, 1);
+      entity.getComponent(TextureComponent.class).textureRegion = createTexture("GameScreen/Player.atlas", player, 0);
+      entity.getComponent(BodyComponent.class).body = createBody(player, posx, posy, 1);
       entity.getComponent(TransformComponent.class).scale.x = 5f;
       entity.getComponent(TransformComponent.class).scale.y = 5f;
       entity.add(engine.createComponent(CollisionCallbackComponent.class));
@@ -243,8 +260,9 @@ public class Factory {
    /**
     * Call this method to create entities for the start of the game.
     */
-   public void createEntities() {
-      engine.addEntity(createPlayer());
+   public void createEntities(int playerCount) {
+      for(int i = 0; i < playerCount; i++)
+         engine.addEntity(createPlayer("Player_1", 10 + (i * 10), 10, i));
    }
 
    /**

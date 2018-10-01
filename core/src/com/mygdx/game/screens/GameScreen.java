@@ -27,10 +27,11 @@ public class GameScreen extends ScreenAdapter {
     *
     * @param myGame
     */
-   public GameScreen(Game myGame) {
+   public GameScreen(Game myGame, int playerCount) {
       this.myGame = myGame;
       engine = Factory.getFactory().getEngine();
       ui=new IngameOverlay(4);
+      Factory.getFactory().createEntities(playerCount);
    }
 
    /**

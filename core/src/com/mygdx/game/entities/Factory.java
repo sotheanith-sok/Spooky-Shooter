@@ -145,13 +145,35 @@ public class Factory {
       entity.add(engine.createComponent(TextureComponent.class));
       entity.add(engine.createComponent(IsPlayerComponent.class));
 
+      entity.add(engine.createComponent(BulletVelocityStatComponent.class));
       entity.getComponent(TextureComponent.class).textureRegion = createTexture("GameScreen/Player.atlas", "Player_1", 0);
-      entity.getComponent(BodyComponent.class).body = createBody("Player_1", 1);
-      entity.getComponent(TransformComponent.class).scale.x = 10f;
-      entity.getComponent(TransformComponent.class).scale.y = 10f;
+      entity.getComponent(BodyComponent.class).body = createBody("Player_1", 10, 10, 1);
+      entity.getComponent(TransformComponent.class).scale.x = 5f;
+      entity.getComponent(TransformComponent.class).scale.y = 5f;
       entity.add(engine.createComponent(CollisionCallbackComponent.class));
       entity.getComponent(BodyComponent.class).body.setUserData(entity);
       entity.getComponent(PlayerVelocityStatComponent.class).movingSpeed=20f;
+      applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_PLAYER, Utilities.MASK_PLAYER);
+      return entity;
+   }
+
+   public Entity shoot(float x, float y) {
+      System.out.println("PEW");
+      Entity entity = engine.createEntity();
+      entity.add(engine.createComponent(MovementComponent.class));
+      entity.add(engine.createComponent(BulletVelocityStatComponent.class));
+      entity.add(engine.createComponent(TransformComponent.class));
+      entity.add(engine.createComponent(BodyComponent.class));
+      entity.add(engine.createComponent(TextureComponent.class));
+      entity.add(engine.createComponent(IsBulletComponent.class));
+
+      entity.getComponent(TextureComponent.class).textureRegion = createTexture("GameScreen/Player.atlas", "Player_1", 0);
+      entity.getComponent(BodyComponent.class).body = createBody("Bullet_1", x, y, 1);
+      entity.getComponent(TransformComponent.class).scale.x = 1f;
+      entity.getComponent(TransformComponent.class).scale.y = 1f;
+      entity.add(engine.createComponent(CollisionCallbackComponent.class));
+      entity.getComponent(BodyComponent.class).body.setUserData(entity);
+      applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_PLAYER_PROJECTILE, Utilities.MASK_PLAYER_PROJECTILE);
       return entity;
    }
 
@@ -183,6 +205,8 @@ public class Factory {
       engine.addSystem(new PlayerControlSystem());
       engine.addSystem(new PlayerVelocitySystem());
       engine.addSystem(new Box2dBodyCleaningSystem(world));
+      engine.addSystem(new BulletControlSystem());
+      engine.addSystem(new BulletVelocitySystem());
       new CollisionCallbackSystem(world);
    }
 
@@ -205,10 +229,10 @@ public class Factory {
     * @param nameOfBody of the body
     * @return Box2D body
     */
-   public Body createBody(String nameOfBody, float scale) {
+   public Body createBody(String nameOfBody, float posx, float posy,  float scale) {
       BodyDef bodyDef = new BodyDef();
       bodyDef.type = BodyDef.BodyType.DynamicBody;
-      bodyDef.position.set(10, 10);
+      bodyDef.position.set(posx, posy);
       Body body = world.createBody(bodyDef);
       FixtureDef fixtureDef = new FixtureDef();
       fixtureDef.density = 1;
@@ -223,19 +247,18 @@ public class Factory {
       engine.addEntity(createPlayer());
    }
 
-
    /**
     * Apply collision filter to this body
     * @param body which body to apply to
     * @param categoryBits which category is this body belong to. LOOK AT UTILITIES for more detail.
     * @param maskingBits whiich category should this body collide with. LOOK AT UTILITIES for more detail.
     */
-   public void applyCollisionFilter(Body body, short categoryBits, short maskingBits){
-      Array<Fixture> fixtures =  body.getFixtureList();
-      for (Fixture fixture : fixtures){
-         Filter filter= fixture.getFilterData();
-         filter.categoryBits=categoryBits;
-         filter.maskBits=maskingBits;
+   public void applyCollisionFilter(Body body, short categoryBits, short maskingBits) {
+      Array<Fixture> fixtures = body.getFixtureList();
+      for (Fixture fixture : fixtures) {
+         Filter filter = fixture.getFilterData();
+         filter.categoryBits = categoryBits;
+         filter.maskBits = maskingBits;
          fixture.setFilterData(filter);
       }
    }

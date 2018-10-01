@@ -16,13 +16,13 @@ public class PlayerVelocitySystem extends IntervalSystem {
     private ImmutableArray<Entity> entities;
     private ComponentMapper<MovementComponent> mm;
     private ComponentMapper<BodyComponent> bm;
-    private ComponentMapper<PlayerVelocityStatComponent> pm;
+    private ComponentMapper<PlayerVelocityStatComponent> pvm;
 
     public PlayerVelocitySystem() {
         super(Utilities.MAX_STEP_TIME);
         mm = ComponentMapper.getFor(MovementComponent.class);
         bm = ComponentMapper.getFor(BodyComponent.class);
-        pm = ComponentMapper.getFor(PlayerVelocityStatComponent.class);
+        pvm = ComponentMapper.getFor(PlayerVelocityStatComponent.class);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class PlayerVelocitySystem extends IntervalSystem {
         for(Entity entity: entities){
             BodyComponent bC= bm.get(entity);
             MovementComponent mC = mm.get(entity);
-            PlayerVelocityStatComponent pVC = pm.get(entity);
+            PlayerVelocityStatComponent pVC = pvm.get(entity);
             bC.body.setLinearVelocity(
             (mC.moveRight ? pVC.movingSpeed : 0) - (mC.moveLeft ? pVC.movingSpeed : 0),
             (mC.moveUp    ? pVC.movingSpeed : 0) - (mC.moveDown ? pVC.movingSpeed : 0));

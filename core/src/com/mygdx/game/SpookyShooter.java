@@ -20,7 +20,6 @@ public class SpookyShooter extends Game implements Shooter {
    @Override
    public void create() {
       setScreen(new GameOverScreen(this));
-
    }
 
    /**

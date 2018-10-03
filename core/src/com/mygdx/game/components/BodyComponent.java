@@ -11,12 +11,11 @@ public class BodyComponent implements Component, Pool.Poolable {
 
    public Body body = null;
 
-   /**
-    * Resets the object for reuse. Object references should be nulled and fields may be set to default values.
-    */
-   @Override
-   public void reset() {
-      body.setActive(false);
-      body=null;
-   }
+    /**
+     * Resets the object for reuse. Object references should be nulled and fields may be set to default values.
+     */
+    @Override
+    public void reset() {
+        body=null;
+    }
 }

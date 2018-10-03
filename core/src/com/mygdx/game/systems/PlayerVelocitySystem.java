@@ -8,6 +8,7 @@ import com.badlogic.ashley.systems.IntervalSystem;
 import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.components.BodyComponent;
+import com.mygdx.game.components.IsPlayerComponent;
 import com.mygdx.game.components.MovementComponent;
 import com.mygdx.game.components.PlayerVelocityStatComponent;
 import com.mygdx.game.utilities.Utilities;
@@ -27,7 +28,7 @@ public class PlayerVelocitySystem extends IntervalSystem {
 
     @Override
     public void addedToEngine(Engine engine){
-        entities=engine.getEntitiesFor(Family.all(BodyComponent.class,MovementComponent.class).get());
+        entities=engine.getEntitiesFor(Family.all(BodyComponent.class,MovementComponent.class, IsPlayerComponent.class).get());
     }
 
     /**

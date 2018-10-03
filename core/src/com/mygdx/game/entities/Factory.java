@@ -8,11 +8,13 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.components.*;
-import com.mygdx.game.components.Scripts.EnemyCollisionCallback;
+import com.mygdx.game.components.Scripts.CollisionCallback;
+import com.mygdx.game.components.Scripts.InvisibleWallCollisionCallback;
 import com.mygdx.game.systems.*;
 import com.mygdx.game.systems.CollisionCallbackSystem;
 import com.mygdx.game.systems.PhysicsDebugSystem;
@@ -148,14 +150,15 @@ public class Factory {
 
       entity.add(engine.createComponent(BulletVelocityStatComponent.class));
       entity.getComponent(TextureComponent.class).textureRegion = createTexture("GameScreen/Player.atlas", player, 0);
-      entity.getComponent(BodyComponent.class).body = createBody(player, posx, posy, 1);
-      entity.getComponent(TransformComponent.class).scale.x = 2f;
-      entity.getComponent(TransformComponent.class).scale.y = 2f;
+      entity.getComponent(BodyComponent.class).body = createBody(player, posx, posy, 1.1f);
+      entity.getComponent(TransformComponent.class).scale.x = 5f;
+      entity.getComponent(TransformComponent.class).scale.y = 5f;
       entity.add(engine.createComponent(CollisionCallbackComponent.class));
       entity.getComponent(BodyComponent.class).body.setUserData(entity);
       applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_PLAYER, Utilities.MASK_PLAYER);
       return entity;
    }
+
 
    /**
     * Call this method to create Bullet entity
@@ -170,8 +173,8 @@ public class Factory {
       entity.add(engine.createComponent(BodyComponent.class));
       entity.add(engine.createComponent(TextureComponent.class));
       entity.add(engine.createComponent(IsBulletComponent.class));
-      entity.getComponent(IsBulletComponent.class).playerNum = playerNum;
 
+      entity.getComponent(IsBulletComponent.class).playerNum = playerNum;
       entity.getComponent(TextureComponent.class).textureRegion = createTexture("GameScreen/Player.atlas", "Player_1", 0);
       entity.getComponent(BodyComponent.class).body = createBody("Player_1", x, y, 1);
       entity.getComponent(TransformComponent.class).scale.x = 1f;
@@ -204,7 +207,9 @@ public class Factory {
       entity.getComponent(TransformComponent.class).scale.y = 5f;
       entity.add(engine.createComponent(CollisionCallbackComponent.class));
       entity.getComponent(BodyComponent.class).body.setUserData(entity);
-      applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_ENEMY, Utilities.MASK_ENEMY);
+      applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_PLAYER_PROJECTILE, Utilities.MASK_PLAYER_PROJECTILE);
+      engine.addEntity(entity);
+
       return entity;
    }
 
@@ -230,12 +235,14 @@ public class Factory {
     * Load systems into the Ashley engine.
     */
    private void loadSystemsIntoEngine() {
+       EntityRemovingSystem entityRemovingSystem=new EntityRemovingSystem(world,engine);
       engine.addSystem(new RenderingSystem(spriteBatch, camera));
+      engine.addEntityListener(new RenderingSystem(spriteBatch, camera));
       engine.addSystem(new PhysicsSystem(world));
       engine.addSystem(new PhysicsDebugSystem(world, camera));
       engine.addSystem(new PlayerControlSystem());
       engine.addSystem(new PlayerVelocitySystem());
-      engine.addSystem(new Box2dBodyCleaningSystem(world));
+      engine.addSystem(entityRemovingSystem);
       engine.addSystem(new BulletControlSystem());
       engine.addSystem(new BulletVelocitySystem());
       new CollisionCallbackSystem(world);
@@ -260,10 +267,10 @@ public class Factory {
     * @param nameOfBody of the body
     * @return Box2D body
     */
-   public Body createBody(String nameOfBody, float posx, float posy,  float scale) {
+   public Body createBody(String nameOfBody, float posX, float posY,  float scale) {
       BodyDef bodyDef = new BodyDef();
       bodyDef.type = BodyDef.BodyType.DynamicBody;
-      bodyDef.position.set(posx, posy);
+      bodyDef.position.set(posX, posY);
       Body body = world.createBody(bodyDef);
       FixtureDef fixtureDef = new FixtureDef();
       fixtureDef.density = 1;
@@ -277,6 +284,7 @@ public class Factory {
    public void createEntities(int playerCount) {
       for(int i = 0; i < playerCount; i++)
          engine.addEntity(createPlayer("Player_1", 10 + (i * 10), 10, i));
+      createInvisibleWall(Utilities.FRUSTUM_WIDTH*0/5,0-0.5f,Utilities.FRUSTUM_WIDTH*5/5,Utilities.FRUSTUM_HEIGHT+1f,1);
    }
 
    /**
@@ -293,5 +301,38 @@ public class Factory {
          filter.maskBits = maskingBits;
          fixture.setFilterData(filter);
       }
+   }
+
+   private Entity createAnInvisibleWall(float x, float y, float scale){
+       Entity entity = engine.createEntity();
+       entity.add(engine.createComponent(BodyComponent.class));
+       entity.add(engine.createComponent(CollisionCallbackComponent.class));
+       entity.getComponent(CollisionCallbackComponent.class).beginContactCallback=new InvisibleWallCollisionCallback();
+       entity.getComponent(BodyComponent.class).body = createBody("Bullet_1",x, y, scale);
+       entity.getComponent(BodyComponent.class).body.setUserData(entity);
+       entity.getComponent(BodyComponent.class).body.setType(BodyDef.BodyType.StaticBody);
+       applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_ENVIRONMENT, Utilities.MASK_ENVIRONMENT);
+        return  entity;
+   }
+
+    /**
+     *Call this method to create boundary that delete bullet and prevent player from passing through it.
+     * @param x x-coordinate of the boundary wall in meter
+     * @param y y-coordinate of the boundary wall in meter
+     * @param width width of the boundary wall in meter
+     * @param height height of the boundary wall in meter
+     * @param scale how big should each block of the wall be. Default value in 1 meter
+     */
+   private void createInvisibleWall(float x, float y, float width, float height, float scale){
+       //Top and Buttom
+       for (float i=x; i<=x+width;i=i+scale){
+           createAnInvisibleWall(i,y,scale);
+           createAnInvisibleWall(i,y+height,scale);
+       }
+       //Left and right wall
+       for (float i = y+scale; i<=y+height;i=i+scale){
+           createAnInvisibleWall(x,i,scale);
+           createAnInvisibleWall(x+width,i,scale);
+       }
    }
 }

@@ -48,7 +48,7 @@ public class RenderingSystem extends SortedIteratingSystem {
    @Override
    public void update(float deltaTime) {
 
-      Gdx.gl.glClearColor(0, 0, 0, 1);
+      Gdx.gl.glClearColor(1, 0, 0, 1);
       Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
       camera.update();
       spriteBatch.setProjectionMatrix(camera.combined);

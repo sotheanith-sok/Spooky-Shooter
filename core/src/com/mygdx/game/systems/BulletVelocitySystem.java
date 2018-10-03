@@ -29,11 +29,13 @@ public class BulletVelocitySystem extends IntervalSystem {
       entities=engine.getEntitiesFor(Family.all(MovementComponent.class).get());
    }
 
+
    /**
     * The processing logic of the system should be placed here.
     */
    @Override
    protected void updateInterval() {
+
       for(Entity entity: entities){
          BulletVelocityStatComponent bvc = bvm.get(entity);
          MovementComponent mC = mm.get(entity);

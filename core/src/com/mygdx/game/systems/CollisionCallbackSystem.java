@@ -28,10 +28,10 @@ public class CollisionCallbackSystem implements ContactListener {
       Fixture fixtureB = contact.getFixtureB();
       Entity entityB = (Entity) fixtureB.getBody().getUserData();
 
-      if (ccc.get(entityA).beginContactCallback != null) {
+      if (ccc.get(entityA)!=null &&ccc.get(entityA).beginContactCallback != null) {
          ccc.get(entityA).beginContactCallback.run(entityA, entityB);
       }
-      if (ccc.get(entityB).beginContactCallback != null) {
+      if (ccc.get(entityB)!=null && ccc.get(entityB).beginContactCallback != null) {
          ccc.get(entityB).beginContactCallback.run(entityB, entityA);
       }
    }
@@ -47,10 +47,10 @@ public class CollisionCallbackSystem implements ContactListener {
       Entity entityA = (Entity) fixtureA.getBody().getUserData();
       Fixture fixtureB = contact.getFixtureB();
       Entity entityB = (Entity) fixtureB.getBody().getUserData();
-      if (ccc.get(entityA).endContactCallback != null) {
+      if (ccc.get(entityA)!=null && ccc.get(entityA).endContactCallback != null) {
          ccc.get(entityA).endContactCallback.run(entityA, entityB);
       }
-      if (ccc.get(entityB).endContactCallback != null) {
+      if (ccc.get(entityB)!=null && ccc.get(entityB).endContactCallback != null) {
          ccc.get(entityB).endContactCallback.run(entityB, entityA);
       }
    }

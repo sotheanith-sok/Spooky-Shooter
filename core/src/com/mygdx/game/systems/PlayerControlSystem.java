@@ -34,7 +34,7 @@ public class PlayerControlSystem extends IntervalSystem {
       for (Entity entity : entities) {
          MovementComponent mc = mm.get(entity);
          IsPlayerComponent ic = im.get(entity);
-         if(ic.isPlayer0) {
+         if(ic.playerNum == 0) {
             mc.moveLeft = Gdx.input.isKeyPressed(Input.Keys.LEFT);
             mc.moveRight = Gdx.input.isKeyPressed(Input.Keys.RIGHT);
             mc.moveUp = Gdx.input.isKeyPressed(Input.Keys.UP);
@@ -42,7 +42,7 @@ public class PlayerControlSystem extends IntervalSystem {
             mc.shot = Gdx.input.isKeyPressed(Input.Keys.SPACE) ||
                     Gdx.input.isKeyPressed(Input.Keys.BUTTON_R1);
          }
-         else if(ic.isPlayer1) {
+         else if(ic.playerNum == 1) {
             mc.moveLeft = Gdx.input.isKeyPressed(Input.Keys.A);
             mc.moveRight = Gdx.input.isKeyPressed(Input.Keys.D);
             mc.moveUp = Gdx.input.isKeyPressed(Input.Keys.W);

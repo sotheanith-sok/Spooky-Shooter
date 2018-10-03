@@ -7,10 +7,7 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IntervalSystem;
 import com.badlogic.ashley.utils.ImmutableArray;
-import com.mygdx.game.components.BodyComponent;
-import com.mygdx.game.components.BulletVelocityStatComponent;
-import com.mygdx.game.components.IsBulletComponent;
-import com.mygdx.game.components.MovementComponent;
+import com.mygdx.game.components.*;
 import com.mygdx.game.entities.Factory;
 import com.mygdx.game.utilities.Utilities;
 
@@ -43,7 +40,7 @@ public class BulletVelocitySystem extends IntervalSystem {
          BodyComponent bC = bm.get(entity);
          bvc.timer += Utilities.MAX_STEP_TIME;
          if (mC.shot && bvc.timer > bvc.rof) {
-            Entity bullet = Factory.getFactory().shoot(bC.body.getPosition().x, bC.body.getPosition().y);
+            Entity bullet = Factory.getFactory().shoot(bC.body.getPosition().x, bC.body.getPosition().y, entity.getComponent(IsPlayerComponent.class).playerNum);
             bullet.getComponent(BodyComponent.class).body.setLinearVelocity(0,bvc.movingSpeed);
             bvc.timer = 0;
          }

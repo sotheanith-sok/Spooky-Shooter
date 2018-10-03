@@ -12,10 +12,13 @@ import com.mygdx.game.ui.IngameOverlay;
  * This is the game screen. It has access to all the game play that will occur.
  */
 public class GameScreen extends ScreenAdapter {
+   /** Singleton for this GameScreen.*/
+   private static GameScreen gameScreen;
 
    SpriteBatch batch;
-   IngameOverlay ui;
-   float count=0;
+   public IngameOverlay ui;
+   long timer = 0;
+   public int score0, score1, score2, score3 = 0;
    /**
     * This is the reference to the game object.
     */
@@ -30,8 +33,18 @@ public class GameScreen extends ScreenAdapter {
    public GameScreen(Game myGame, int playerCount) {
       this.myGame = myGame;
       engine = Factory.getFactory().getEngine();
-      ui=new IngameOverlay(4);
+      ui=new IngameOverlay(playerCount);
       Factory.getFactory().createEntities(playerCount);
+      gameScreen = this;
+   }
+
+   /**
+    * Get this screen.
+    *
+    * @return GameScreen object
+    */
+   public static GameScreen getGameScreen() {
+      return gameScreen;
    }
 
    /**
@@ -42,8 +55,12 @@ public class GameScreen extends ScreenAdapter {
    @Override
    public void render(float delta) {
       engine.update(delta);
-      count+=delta*MathUtils.random(1,100);
-      ui.updateScore(MathUtils.random(0,3),  count);
+      timer += (delta * MathUtils.random(100));
+      // The lower this
+      // number   vv  the more often enemies spawn
+      if (timer % 10 == 0)
+         Factory.getFactory()
+          .spawnEnemy(MathUtils.random(10f,110f),MathUtils.random(30f,60f));
       ui.draw();
    }
 

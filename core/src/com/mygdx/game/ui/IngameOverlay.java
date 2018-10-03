@@ -34,14 +34,14 @@ public class IngameOverlay extends Stage {
    }
 
    private void createUI(float posX, float posY, boolean leftAlign){
-      Label label =new Label("HIdfasdfasdfdsafds",skin,"title");
+      Label label =new Label("LOL U HAVE NO POINTS NOW",skin,"title");
       label.setPosition(Utilities.MetersToPixels(posX),Utilities.MetersToPixels(posY));
       this.addActor(label);
       labels.add(label);
    }
-   public void updateScore(int player, float score){
+   public void updateScore(int player, int score){
       if(player >=0 && player<labels.size){
-         labels.get(player).setText(Float.toString(score));
+         labels.get(player).setText(Integer.toString(score));
       }
    }
 }

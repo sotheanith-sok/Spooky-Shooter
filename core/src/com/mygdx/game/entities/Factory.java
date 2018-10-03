@@ -14,6 +14,7 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.components.*;
 import com.mygdx.game.components.Scripts.CollisionCallback;
+import com.mygdx.game.components.Scripts.EnemyCollisionCallback;
 import com.mygdx.game.components.Scripts.InvisibleWallCollisionCallback;
 import com.mygdx.game.systems.*;
 import com.mygdx.game.systems.CollisionCallbackSystem;
@@ -21,6 +22,7 @@ import com.mygdx.game.systems.PhysicsDebugSystem;
 import com.mygdx.game.systems.PhysicsSystem;
 import com.mygdx.game.systems.RenderingSystem;
 import com.mygdx.game.utilities.Utilities;
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
 import javax.swing.*;
 
@@ -184,7 +186,8 @@ public class Factory {
               new EnemyCollisionCallback();
       entity.getComponent(BodyComponent.class).body.setUserData(entity);
        applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_PLAYER_PROJECTILE, Utilities.MASK_PLAYER_PROJECTILE);
-      return entity;
+      engine.addEntity(entity);
+       return entity;
    }
 
    /**

@@ -16,17 +16,17 @@ public class EnemyCollisionCallback  implements CollisionCallback {
                    GameScreen.getGameScreen().ui
                            .updateScore(0, GameScreen.getGameScreen().score0);
                    break;
-               case 1: GameScreen.getGameScreen().score0 += 10f;
+               case 1: GameScreen.getGameScreen().score1 += 10f;
                    GameScreen.getGameScreen().ui
-                           .updateScore(1, GameScreen.getGameScreen().score0);
+                           .updateScore(1, GameScreen.getGameScreen().score1);
                    break;
-               case 2: GameScreen.getGameScreen().score0 += 10f;
+               case 2: GameScreen.getGameScreen().score2 += 10f;
                    GameScreen.getGameScreen().ui
-                           .updateScore(2, GameScreen.getGameScreen().score0);
+                           .updateScore(2, GameScreen.getGameScreen().score2);
                    break;
-               case 3: GameScreen.getGameScreen().score0 += 10f;
+               case 3: GameScreen.getGameScreen().score3 += 10f;
                    GameScreen.getGameScreen().ui
-                           .updateScore(3 , GameScreen.getGameScreen().score0);
+                           .updateScore(3 , GameScreen.getGameScreen().score3);
                    break;
            }
            thisObject.add(Factory.getFactory().getEngine().createComponent(NeedToRemoveComponent.class));

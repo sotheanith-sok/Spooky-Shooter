@@ -5,13 +5,9 @@ import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IntervalSystem;
-import com.badlogic.ashley.utils.Bag;
 import com.badlogic.ashley.utils.ImmutableArray;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.mygdx.game.components.IsBulletComponent;
 import com.mygdx.game.components.MovementComponent;
-import com.mygdx.game.entities.Factory;
 import com.mygdx.game.utilities.Utilities;
 
 public class BulletControlSystem extends IntervalSystem {

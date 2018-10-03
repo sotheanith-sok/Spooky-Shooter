@@ -3,8 +3,8 @@ import com.badlogic.ashley.core.Component;
 import com.badlogic.gdx.utils.Pool;
 
 public class BulletVelocityStatComponent implements Component, Pool.Poolable {
-   public float movingSpeed = 20f;
-   public float rof = 0.1f;
+   public float movingSpeed = 50f;
+   public float rof = 0.03f;
    public float timer = 0;
 
     /**
@@ -12,8 +12,8 @@ public class BulletVelocityStatComponent implements Component, Pool.Poolable {
      */
     @Override
     public void reset() {
-        movingSpeed = 20f;
-       rof = 0.1f;
+        movingSpeed = 50f;
+       rof = 0.03f;
         timer = 0;
     }
 }

@@ -28,7 +28,7 @@ public class PlayerVelocitySystem extends IntervalSystem {
 
     @Override
     public void addedToEngine(Engine engine){
-        entities=engine.getEntitiesFor(Family.all(BodyComponent.class,MovementComponent.class, IsPlayerComponent.class).get());
+        entities=engine.getEntitiesFor(Family.all(BodyComponent.class,MovementComponent.class,IsPlayerComponent.class).get());
     }
 
     /**

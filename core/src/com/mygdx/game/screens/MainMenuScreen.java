@@ -7,7 +7,6 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.mygdx.game.Shooter;
 import com.mygdx.game.SpookyShooter;
 
 /**
@@ -48,12 +47,12 @@ public class MainMenuScreen extends ScreenAdapter {
       if (Gdx.input.isKeyJustPressed(Input.Keys.X) ||
           Gdx.input.isKeyJustPressed(Input.Keys.BUTTON_X)) {
          System.out.println("Key press captured");
-         ((Shooter) myGame).changeScreen(3, 1);
+         ((SpookyShooter) myGame).changeScreen(3, 1);
       }
       if (Gdx.input.isKeyJustPressed(Input.Keys.B) ||
           Gdx.input.isKeyJustPressed(Input.Keys.BUTTON_B)) {
          System.out.println("Key press captured");
-         ((Shooter) myGame).changeScreen(3, 2);
+         ((SpookyShooter) myGame).changeScreen(3, 2);
       }
    }
 }

@@ -55,12 +55,6 @@ public class GameScreen extends ScreenAdapter {
    }
 
    /**
-<<<<<<< HEAD
-    *
-    * This the main loop of this screen.
-=======
-    * This is the main loop of this screen.
->>>>>>> 02f9b1d... Add json writer and reader for persistence score data.
     *
     * @param delta time between current frame and last frame
     */

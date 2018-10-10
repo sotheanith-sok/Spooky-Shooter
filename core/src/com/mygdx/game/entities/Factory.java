@@ -19,6 +19,7 @@ import com.mygdx.game.systems.CollisionCallbackSystem;
 import com.mygdx.game.systems.PhysicsDebugSystem;
 import com.mygdx.game.systems.PhysicsSystem;
 import com.mygdx.game.systems.RenderingSystem;
+import com.mygdx.game.utilities.SteeringPresets;
 import com.mygdx.game.utilities.Utilities;
 
 public class Factory {
@@ -64,6 +65,7 @@ public class Factory {
     * Default Constructor
     */
 
+   private Entity player;
    private Factory() {
       assetManager = new AssetManager(); //Declare AssetManager
       loadAssets();// Load assets
@@ -143,6 +145,7 @@ public class Factory {
       entity.add(engine.createComponent(BodyComponent.class));
       entity.add(engine.createComponent(TextureComponent.class));
       entity.add(engine.createComponent(IsPlayerComponent.class));
+      entity.add(engine.createComponent(SteeringComponent.class));
       entity.getComponent(IsPlayerComponent.class).playerNum = playerNum;
 
       entity.add(engine.createComponent(BulletVelocityStatComponent.class));
@@ -153,6 +156,8 @@ public class Factory {
       entity.add(engine.createComponent(CollisionCallbackComponent.class));
       entity.getComponent(BodyComponent.class).body.setUserData(entity);
       applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_PLAYER, Utilities.MASK_PLAYER);
+      entity.getComponent(SteeringComponent.class).body=entity.getComponent(BodyComponent.class).body;
+      this.player=entity;
       return entity;
    }
 
@@ -203,11 +208,17 @@ public class Factory {
                new EnemyCollisionCallback();
       entity.getComponent(TextureComponent.class).textureRegion = createTexture("GameScreen/Player.atlas", "Player_1", 0);
       entity.getComponent(BodyComponent.class).body = createBody("Player_1", x, y, 1);
-      entity.getComponent(BodyComponent.class).body.setType(BodyDef.BodyType.KinematicBody);
+      entity.getComponent(BodyComponent.class).body.setType(BodyDef.BodyType.DynamicBody);
       entity.getComponent(TransformComponent.class).scale.x = 2f;
       entity.getComponent(TransformComponent.class).scale.y = 2f;
       entity.getComponent(BodyComponent.class).body.setUserData(entity);
       applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_ENEMY, Utilities.MASK_ENEMY);
+
+      entity.add(engine.createComponent(SteeringComponent.class));
+      entity.getComponent(SteeringComponent.class).body=entity.getComponent(BodyComponent.class).body;
+      //entity.getComponent(SteeringComponent.class).steeringBehavior= SteeringPresets.getWander(entity.getComponent(SteeringComponent.class));
+
+      entity.getComponent(SteeringComponent.class).steeringBehavior=SteeringPresets.getSeek(entity.getComponent(SteeringComponent.class),player.getComponent(SteeringComponent.class));
       engine.addEntity(entity);
 
       return entity;
@@ -245,6 +256,9 @@ public class Factory {
       engine.addSystem(entityRemovingSystem);
       engine.addSystem(new BulletControlSystem());
       engine.addSystem(new BulletVelocitySystem());
+      engine.addSystem(new SteeringSystem());
+      engine.addSystem(new EnemiesSpawnSystem());
+      engine.addSystem(new BehaviorSystem());
       new CollisionCallbackSystem(world);
    }
 
@@ -275,6 +289,7 @@ public class Factory {
       FixtureDef fixtureDef = new FixtureDef();
       fixtureDef.density = 1;
       bodyEditorLoader.attachFixture(body, nameOfBody, fixtureDef, scale);
+      body.setFixedRotation(true);
       return body;
    }
 

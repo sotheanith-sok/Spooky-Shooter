@@ -46,6 +46,7 @@ public class PhysicsSystem extends IntervalSystem {
            TransformComponent transformComponent = tm.get(entity);
            transformComponent.previousPosition.x=transformComponent.position.x;
            transformComponent.previousPosition.y=transformComponent.position.y;
+
        }
       world.step(Utilities.MAX_STEP_TIME, Utilities.VELOCITY_ITERATIONS, Utilities.POSITION_ITERATIONS);
       for (Entity entity : entities) {

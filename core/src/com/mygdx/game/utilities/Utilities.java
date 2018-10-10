@@ -47,9 +47,19 @@ public class Utilities {
    //MaskingBits of that entity
    public static final short MASK_PLAYER=~CATEGORY_PLAYER & ~CATEGORY_PLAYER_PROJECTILE; //Player can collide with anything that isn't player or player's projectile.
    public static final short MASK_PLAYER_PROJECTILE= CATEGORY_ENEMY|CATEGORY_ENVIRONMENT; //Player's projectile only collide with enemy
-   public static final short MASK_ENEMY= CATEGORY_PLAYER | CATEGORY_PLAYER_PROJECTILE; // Enemy can collide with player and player's projectile
+   public static final short MASK_ENEMY= CATEGORY_PLAYER | CATEGORY_PLAYER_PROJECTILE|CATEGORY_ENVIRONMENT; // Enemy can collide with player and player's projectile
    public static final short MASK_ENEMY_PROJECTILE = CATEGORY_PLAYER |CATEGORY_ENVIRONMENT; //Enemy's projectile can collide with player
    public static final short MASK_POWERUP=CATEGORY_PLAYER; // Powerup can collide with player
    public static final short MASK_ENVIRONMENT = -1; // ENVIRONMENT can collide with everything.
 
+
+   public static float vectorToAngle (Vector2 vector) {
+      return (float)Math.atan2(-vector.x, vector.y);
+   }
+
+   public static Vector2 angleToVector (Vector2 outVector, float angle) {
+      outVector.x = -(float)Math.sin(angle);
+      outVector.y = (float)Math.cos(angle);
+      return outVector;
+   }
 }

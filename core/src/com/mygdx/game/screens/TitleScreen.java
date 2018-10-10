@@ -33,7 +33,7 @@ public class TitleScreen extends ScreenAdapter {
    }
 
    /**
-    * This the main loop of this screen.
+    * This is the main loop of this screen.
     *
     * @param delta time between current frame and last frame
     */

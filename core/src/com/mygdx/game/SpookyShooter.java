@@ -2,10 +2,12 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.screens.GameOverScreen;
 import com.mygdx.game.screens.GameScreen;
 import com.mygdx.game.screens.MainMenuScreen;
 import com.mygdx.game.screens.TitleScreen;
+import com.mygdx.game.ui.Gameover;
 
 /**
  * This is the entry point to the game.
@@ -27,6 +29,10 @@ public class SpookyShooter extends Game {
     * @param choice
     */
    public void changeScreen(int choice, int playerCount) {
+      changeScreen(choice, playerCount, null);
+   }
+
+   public void changeScreen(int choice, int playerCount, Array<Gameover.Player> players) {
       switch (choice) {
          case 1:
             setScreen(new TitleScreen(this));
@@ -38,7 +44,7 @@ public class SpookyShooter extends Game {
             setScreen(new GameScreen(this, playerCount));
             break;
          case 4:
-            setScreen(new GameOverScreen(this));
+            setScreen(new GameOverScreen(this, playerCount, players));
             break;
       }
    }

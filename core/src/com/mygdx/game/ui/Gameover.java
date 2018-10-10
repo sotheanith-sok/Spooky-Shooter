@@ -2,14 +2,22 @@ package com.mygdx.game.ui;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.*;
+import com.badlogic.gdx.utils.*;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.List;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 import com.mygdx.game.utilities.Utilities;
+import com.sun.javafx.binding.StringFormatter;
+
+import java.lang.StringBuilder;
 
 
 public class Gameover extends Stage {
@@ -27,7 +35,7 @@ public class Gameover extends Stage {
       Label label = new Label ("Game Over", skin, "title");
       label.setPosition(Utilities.MetersToPixels(Utilities.FRUSTUM_WIDTH/2),
               Utilities.MetersToPixels(Utilities.FRUSTUM_HEIGHT/2));
-     label.setOrigin(label.getWidth()/2,label.getHeight()/2);
+      label.setOrigin(label.getWidth()/2,label.getHeight()/2);
       this.addActor(label);
       json=new Json();
       handle = Gdx.files.local(path);
@@ -36,11 +44,32 @@ public class Gameover extends Stage {
          handle.writeString("",false);
       }
 
+      label.setAlignment(Align.center);
+      readScoreFromFile();
+      List<Player> list= new List<Player>(skin, "dimmed");
+      list.setItems(players);
+      list.setAlignment(Align.left);
+      ScrollPane scrollPane = new ScrollPane(list,skin);
+
+       Table table= new Table();
+       table.setFillParent(true);
+       table.setDebug(false,false);
+
+       //Create UI
+      table.add(label).width(1000).height(100);
+      table.row();
+      table.add(scrollPane).fillX().fillY();
+      table.row();
+      this.addActor(table);
+      table.padBottom(500);   
    }
 
 
 
-
+   public void addScore(String playerName, long score){
+      players.add(new Player(playerName,score));
+      writeScoreToFile();
+   }
    /**
     * Write score data to Array.
     */
@@ -56,7 +85,7 @@ public class Gameover extends Stage {
       JsonValue jsonValue=new JsonReader().parse(handle);
       players.clear();
       for (JsonValue j :jsonValue.iterator()){
-         players.add(new Player().setName(j.getString("name")).setTimestamp(j.getString("timestamp")).setScore(j.getInt("score")));
+         players.add(new Player().setName(j.getString("name")).setScore(j.getInt("score")));
       }
    }
 
@@ -66,8 +95,16 @@ public class Gameover extends Stage {
     */
    public class Player{
       private String name;
-      private String timestamp;
-      private int score;
+      private long score;
+
+      public Player(){
+         name="";
+         score=0;
+      }
+      public Player(String name, long score) {
+         this.name = name;
+         this.score = score;
+      }
 
       public String getName() {
          return name;
@@ -77,17 +114,7 @@ public class Gameover extends Stage {
          this.name = name;
          return this;
       }
-
-      public String getTimestamp() {
-         return timestamp;
-      }
-
-      public Player setTimestamp(String timestamp) {
-         this.timestamp = timestamp;
-         return this;
-      }
-
-      public int getScore() {
+      public long getScore() {
          return score;
       }
 
@@ -97,7 +124,7 @@ public class Gameover extends Stage {
       }
       @Override
       public String toString(){
-         return name+timestamp+score;
+         return String.format( "%-22s%-25s",name,Long.toString(score));
       }
    }
 }

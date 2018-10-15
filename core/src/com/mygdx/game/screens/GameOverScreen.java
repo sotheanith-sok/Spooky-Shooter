@@ -16,6 +16,7 @@ import com.mygdx.game.ui.Gameover;
  */
 public class GameOverScreen extends ScreenAdapter {
 
+   private static GameOverScreen gameOverScreen;
    /**
     * This is the reference to the game object.
     */
@@ -30,14 +31,19 @@ public class GameOverScreen extends ScreenAdapter {
     *
     * @param myGame
     */
-   public GameOverScreen(Game myGame, int playerCount, Array<Gameover.Player> p) {
+   private GameOverScreen(Game myGame) {
       this.myGame = myGame;
      gameOver= new Gameover();
      batch = new SpriteBatch();
      img = new Texture("GameScreen/Gfx/fourthScreen.jpg");
-     numberOfPlayers = playerCount;
    }
 
+   public static GameOverScreen getScreen(Game myGame){
+      if(gameOverScreen==null){
+         gameOverScreen=new GameOverScreen(myGame);
+      }
+      return gameOverScreen;
+   }
    /**
     * This the main loop of this screen.
     *
@@ -53,7 +59,7 @@ public class GameOverScreen extends ScreenAdapter {
       if (Gdx.input.isKeyJustPressed(Input.Keys.X) ||
           Gdx.input.isKeyJustPressed(Input.Keys.BUTTON_X)) {
          System.out.println("Key press captured");
-         ((SpookyShooter) myGame).changeScreen(3, numberOfPlayers, null);
+         ((SpookyShooter) myGame).changeScreen(3, numberOfPlayers);
       }
 
       if (Gdx.input.isKeyJustPressed(Input.Keys.B) ||
@@ -61,8 +67,18 @@ public class GameOverScreen extends ScreenAdapter {
          System.out.println("Key press captured");
          Gdx.app.exit();
       }
-
       gameOver.act(delta);
       gameOver.draw();
    }
+
+   /**
+    * Call this method to add score to score board.
+    * @param name of player
+    * @param score score
+    */
+   public void addScore(String name, long score){
+      gameOver.addScore(name,score);
+   }
+
+
 }

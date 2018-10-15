@@ -6,6 +6,7 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.ai.GdxAI;
 import com.mygdx.game.components.SteeringComponent;
+import com.mygdx.game.utilities.SteeringPresets;
 
 public class SteeringSystem extends IteratingSystem {
 
@@ -32,6 +33,10 @@ public class SteeringSystem extends IteratingSystem {
    @Override
    protected void processEntity(Entity entity, float deltaTime) {
          SteeringComponent steeringComponent=steeringComponentComponentMapper.get(entity);
-         steeringComponent.update(deltaTime);
+         try{
+            steeringComponent.update(deltaTime);
+         }catch (NullPointerException e){
+            steeringComponent.steeringBehavior= SteeringPresets.getWander(steeringComponent);
+         }
    }
 }

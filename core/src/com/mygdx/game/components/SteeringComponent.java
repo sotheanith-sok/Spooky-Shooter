@@ -292,5 +292,6 @@ public class SteeringComponent implements Steerable<Vector2>, Component, Pool.Po
    @Override
    public void reset() {
       body=null;
+      steeringBehavior=null;
    }
 }

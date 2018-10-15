@@ -18,6 +18,7 @@ import com.mygdx.game.utilities.Utilities;
 import com.sun.javafx.binding.StringFormatter;
 
 import java.lang.StringBuilder;
+import java.util.Comparator;
 
 
 public class Gameover extends Stage {
@@ -28,7 +29,7 @@ public class Gameover extends Stage {
    private FileHandle handle;
    private Array<Player> players;
    private Skin skin;//initiate skin -jesse
-
+   private List<Player> list;
    public Gameover (){
 
       skin = new Skin(Gdx.files.internal("skins/shade/skin/uiskin.json"));//-load skin - jesse
@@ -46,7 +47,7 @@ public class Gameover extends Stage {
 
       label.setAlignment(Align.center);
       readScoreFromFile();
-      List<Player> list= new List<Player>(skin, "dimmed");
+      list= new List<Player>(skin, "dimmed");
       list.setItems(players);
       list.setAlignment(Align.left);
       ScrollPane scrollPane = new ScrollPane(list,skin);
@@ -61,20 +62,25 @@ public class Gameover extends Stage {
       table.add(scrollPane).fillX().fillY();
       table.row();
       this.addActor(table);
-      table.padBottom(500);   
+      table.padBottom(500);
    }
-
-
 
    public void addScore(String playerName, long score){
       players.add(new Player(playerName,score));
+      players.sort(new Comparator<Player>() {
+         @Override
+         public int compare(Player o1, Player o2) {
+            return (int)(o2.score-o1.score);
+         }
+      });
+      list.setItems(players);
       writeScoreToFile();
    }
    /**
     * Write score data to Array.
     */
    private void writeScoreToFile(){
-      String playerString=json.toJson(players);
+      String playerString=json.prettyPrint(players);
       handle.writeString(playerString,false);
    }
 

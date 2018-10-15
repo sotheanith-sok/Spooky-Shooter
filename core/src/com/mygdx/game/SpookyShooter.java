@@ -28,11 +28,8 @@ public class SpookyShooter extends Game {
     * This function allows screen to control which screen it will be translate to.
     * @param choice
     */
-   public void changeScreen(int choice, int playerCount) {
-      changeScreen(choice, playerCount, null);
-   }
 
-   public void changeScreen(int choice, int playerCount, Array<Gameover.Player> players) {
+   public void changeScreen(int choice, int playerCount) {
       switch (choice) {
          case 1:
             setScreen(new TitleScreen(this));
@@ -44,7 +41,7 @@ public class SpookyShooter extends Game {
             setScreen(new GameScreen(this, playerCount));
             break;
          case 4:
-            setScreen(new GameOverScreen(this, playerCount, players));
+            setScreen(GameOverScreen.getScreen(this));
             break;
       }
    }

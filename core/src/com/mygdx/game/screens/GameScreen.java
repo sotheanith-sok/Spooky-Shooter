@@ -10,8 +10,10 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.SpookyShooter;
+import com.mygdx.game.components.BodyComponent;
 import com.mygdx.game.entities.Factory;
 import com.mygdx.game.ui.IngameOverlay;
+import com.mygdx.game.utilities.Utilities;
 
 /**
  * This is the game screen. It has access to all the game play that will occur.
@@ -56,21 +58,15 @@ public class GameScreen extends ScreenAdapter {
 
    /**
     *
+    * This the main loop of this screen.*
     * @param delta time between current frame and last frame
     */
    @Override
    public void render(float delta) {
       engine.update(delta);
-      timer += (delta * MathUtils.random(100));
-      // The lower this
-      // number   vv  the more often enemies spawn
-      if (timer % 20 == 0)
-         Factory.getFactory().spawnEnemy(MathUtils.random(10f,110f),MathUtils.random(30f,60f));
       ui.draw();
       if (Gdx.input.isKeyJustPressed(Input.Keys.O)) {
-         System.out.println("Key press captured");
-         ((SpookyShooter) myGame).changeScreen(4, numPlayers);
-         this.dispose();
+         endGame();
       }
    }
 
@@ -86,5 +82,14 @@ public class GameScreen extends ScreenAdapter {
       for(Body body:array){//kills hit boxes
          Factory.getFactory().getWorld().destroyBody(body);
       }
+   }
+
+   /**
+    * Call this method to end game.
+    */
+   public void endGame(){
+      ((SpookyShooter) myGame).changeScreen(4, numPlayers);
+      GameOverScreen.getScreen(myGame).addScore("Player 0",score0);
+      this.dispose();
    }
 }

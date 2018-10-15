@@ -14,6 +14,7 @@ import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.components.*;
 import com.mygdx.game.components.Scripts.EnemyCollisionCallback;
 import com.mygdx.game.components.Scripts.InvisibleWallCollisionCallback;
+import com.mygdx.game.components.Scripts.PlayerCollisionCallback;
 import com.mygdx.game.systems.*;
 import com.mygdx.game.systems.CollisionCallbackSystem;
 import com.mygdx.game.systems.PhysicsDebugSystem;
@@ -65,7 +66,7 @@ public class Factory {
     * Default Constructor
     */
 
-   private Entity player;
+   public Entity player;
    private Factory() {
       assetManager = new AssetManager(); //Declare AssetManager
       loadAssets();// Load assets
@@ -81,7 +82,8 @@ public class Factory {
       bodyEditorLoader = new BodyEditorLoader(Gdx.files.internal("GameScreen/HitboxData.json"));//Declare hitbox loader
 
       engine = new PooledEngine(); //Ashely engine
-      loadSystemsIntoEngine(); //Load systems into engine
+       //Load systems into engine
+      loadSystemsIntoEngine();
    }
 
    /**
@@ -146,14 +148,14 @@ public class Factory {
       entity.add(engine.createComponent(TextureComponent.class));
       entity.add(engine.createComponent(IsPlayerComponent.class));
       entity.add(engine.createComponent(SteeringComponent.class));
+      entity.add(engine.createComponent(CollisionCallbackComponent.class));
+      entity.getComponent(CollisionCallbackComponent.class).beginContactCallback=new PlayerCollisionCallback();
       entity.getComponent(IsPlayerComponent.class).playerNum = playerNum;
-
       entity.add(engine.createComponent(BulletVelocityStatComponent.class));
       entity.getComponent(TextureComponent.class).textureRegion = createTexture("GameScreen/Player.atlas", player, 0);
       entity.getComponent(BodyComponent.class).body = createBody(player, posx, posy, 1.1f);
       entity.getComponent(TransformComponent.class).scale.x = 1f;
       entity.getComponent(TransformComponent.class).scale.y = 1f;
-      entity.add(engine.createComponent(CollisionCallbackComponent.class));
       entity.getComponent(BodyComponent.class).body.setUserData(entity);
       applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_PLAYER, Utilities.MASK_PLAYER);
       entity.getComponent(SteeringComponent.class).body=entity.getComponent(BodyComponent.class).body;
@@ -216,8 +218,6 @@ public class Factory {
 
       entity.add(engine.createComponent(SteeringComponent.class));
       entity.getComponent(SteeringComponent.class).body=entity.getComponent(BodyComponent.class).body;
-      //entity.getComponent(SteeringComponent.class).steeringBehavior= SteeringPresets.getWander(entity.getComponent(SteeringComponent.class));
-
       entity.getComponent(SteeringComponent.class).steeringBehavior=SteeringPresets.getSeek(entity.getComponent(SteeringComponent.class),player.getComponent(SteeringComponent.class));
       engine.addEntity(entity);
 
@@ -246,20 +246,20 @@ public class Factory {
     * Load systems into the Ashley engine.
     */
    private void loadSystemsIntoEngine() {
-       EntityRemovingSystem entityRemovingSystem=new EntityRemovingSystem(world,engine);
       engine.addSystem(new RenderingSystem(spriteBatch, camera));
       engine.addEntityListener(new RenderingSystem(spriteBatch, camera));
       engine.addSystem(new PhysicsSystem(world));
       engine.addSystem(new PhysicsDebugSystem(world, camera));
       engine.addSystem(new PlayerControlSystem());
       engine.addSystem(new PlayerVelocitySystem());
-      engine.addSystem(entityRemovingSystem);
+      engine.addSystem(new EntityRemovingSystem(world,engine));
       engine.addSystem(new BulletControlSystem());
       engine.addSystem(new BulletVelocitySystem());
       engine.addSystem(new SteeringSystem());
       engine.addSystem(new EnemiesSpawnSystem());
       engine.addSystem(new BehaviorSystem());
       new CollisionCallbackSystem(world);
+      engine.addSystem(new DetectEndGameSystem());
    }
 
    /**
@@ -297,9 +297,13 @@ public class Factory {
     * Call this method to create entities for the start of the game.
     */
    public void createEntities(int playerCount) {
-      for(int i = 0; i < playerCount; i++)
+      for(int i = 0; i < playerCount; i++){
          engine.addEntity(createPlayer("Player_1", 10 + (i * 10), 10, i));
+      }
+
       createInvisibleWall(Utilities.FRUSTUM_WIDTH*0/5,0-0.5f,Utilities.FRUSTUM_WIDTH*5/5,Utilities.FRUSTUM_HEIGHT+1f,1);
+
+
    }
 
    /**

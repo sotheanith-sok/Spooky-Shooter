@@ -129,3 +129,6 @@ core/assets/badlogic.jpg
 gradlew
 *.bat
 *.jar
+
+## local database
+core/assets/GameOverScreen/PlayerScores.json

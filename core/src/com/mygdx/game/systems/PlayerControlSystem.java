@@ -41,14 +41,15 @@ public class PlayerControlSystem extends IntervalSystem {
             mc.moveDown = Gdx.input.isKeyPressed(Input.Keys.DOWN);
             mc.shot = Gdx.input.isKeyPressed(Input.Keys.SPACE) ||
                     Gdx.input.isKeyPressed(Input.Keys.BUTTON_R1);
+            mc.secondary = Gdx.input.isKeyPressed(Input.Keys.B);
          }
          else if(ic.playerNum == 1) {
             mc.moveLeft = Gdx.input.isKeyPressed(Input.Keys.A);
             mc.moveRight = Gdx.input.isKeyPressed(Input.Keys.D);
             mc.moveUp = Gdx.input.isKeyPressed(Input.Keys.W);
             mc.moveDown = Gdx.input.isKeyPressed(Input.Keys.S);
-            mc.shot = Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) ||
-                    Gdx.input.isKeyPressed(Input.Keys.CONTROL_LEFT);
+            mc.shot = Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT);
+            mc.secondary = Gdx.input.isKeyPressed(Input.Keys.CONTROL_LEFT);
          }
       }
    }

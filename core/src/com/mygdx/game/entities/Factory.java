@@ -150,6 +150,7 @@ public class Factory {
       entity.add(engine.createComponent(SteeringComponent.class));
       entity.add(engine.createComponent(CollisionCallbackComponent.class));
       entity.getComponent(CollisionCallbackComponent.class).beginContactCallback=new PlayerCollisionCallback();
+      entity.add(engine.createComponent(IsLaserComponent.class));
       entity.getComponent(IsPlayerComponent.class).playerNum = playerNum;
       entity.add(engine.createComponent(BulletVelocityStatComponent.class));
       entity.getComponent(TextureComponent.class).textureRegion = createTexture("GameScreen/Player.atlas", player, 0);
@@ -189,6 +190,29 @@ public class Factory {
        applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_PLAYER_PROJECTILE, Utilities.MASK_PLAYER_PROJECTILE);
       engine.addEntity(entity);
        return entity;
+   }
+
+   public Entity laser(float x, float y, int playerNum) {
+      Entity entity = engine.createEntity();
+      entity.add(engine.createComponent(MovementComponent.class));
+      entity.add(engine.createComponent(BulletVelocityStatComponent.class));
+      entity.add(engine.createComponent(TransformComponent.class));
+      entity.add(engine.createComponent(BodyComponent.class));
+      entity.add(engine.createComponent(TextureComponent.class));
+      entity.add(engine.createComponent(IsLaserComponent.class));
+
+      entity.getComponent(IsLaserComponent.class).playerNum=playerNum;
+      entity.getComponent(TextureComponent.class).textureRegion = createTexture("GameScreen/Player.atlas", "Player_1", 0);
+      entity.getComponent(BodyComponent.class).body = createBody("laser", x, y, 90);
+      entity.getComponent(TransformComponent.class).scale.x = 1f;
+      entity.getComponent(TransformComponent.class).scale.y = 1f;
+      entity.add(engine.createComponent(CollisionCallbackComponent.class));
+
+      entity.getComponent(BodyComponent.class).body.setUserData(entity);
+      applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_PLAYER_SPECIAL_PROJECTILE,
+       Utilities.MASK_PLAYER_SPECIAL_PROJECTILE);
+      engine.addEntity(entity);
+      return entity;
    }
 
    /**
@@ -253,11 +277,11 @@ public class Factory {
       engine.addSystem(new PlayerControlSystem());
       engine.addSystem(new PlayerVelocitySystem());
       engine.addSystem(new EntityRemovingSystem(world,engine));
-      engine.addSystem(new BulletControlSystem());
       engine.addSystem(new BulletVelocitySystem());
       engine.addSystem(new SteeringSystem());
       engine.addSystem(new EnemiesSpawnSystem());
       engine.addSystem(new BehaviorSystem());
+      engine.addSystem(new LaserSystem());
       new CollisionCallbackSystem(world);
       engine.addSystem(new DetectEndGameSystem());
    }

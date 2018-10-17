@@ -24,7 +24,7 @@ public class GameOverScreen extends ScreenAdapter {
    private Gameover gameOver;
    SpriteBatch batch;
    Texture img;
-   int numberOfPlayers;
+   public int numberOfPlayers;
 
    /**
     * Constructor for this screen

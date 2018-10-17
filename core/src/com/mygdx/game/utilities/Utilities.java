@@ -43,14 +43,16 @@ public class Utilities {
    public static final short CATEGORY_ENEMY_PROJECTILE=0x010; //1000
    public static final short CATEGORY_POWERUP=0x020; //10000
    public static final short CATEGORY_ENVIRONMENT= 0x040; //100000
+   public static final short CATEGORY_PLAYER_SPECIAL_PROJECTILE= 0x080; //1000000
 
    //MaskingBits of that entity
    public static final short MASK_PLAYER=~CATEGORY_PLAYER & ~CATEGORY_PLAYER_PROJECTILE; //Player can collide with anything that isn't player or player's projectile.
    public static final short MASK_PLAYER_PROJECTILE= CATEGORY_ENEMY|CATEGORY_ENVIRONMENT; //Player's projectile only collide with enemy
-   public static final short MASK_ENEMY= CATEGORY_PLAYER | CATEGORY_PLAYER_PROJECTILE|CATEGORY_ENVIRONMENT; // Enemy can collide with player and player's projectile
+   public static final short MASK_ENEMY= CATEGORY_PLAYER | CATEGORY_PLAYER_PROJECTILE|CATEGORY_ENVIRONMENT|CATEGORY_PLAYER_SPECIAL_PROJECTILE; // Enemy can collide with player and player's projectile
    public static final short MASK_ENEMY_PROJECTILE = CATEGORY_PLAYER |CATEGORY_ENVIRONMENT; //Enemy's projectile can collide with player
    public static final short MASK_POWERUP=CATEGORY_PLAYER; // Powerup can collide with player
    public static final short MASK_ENVIRONMENT = -1; // ENVIRONMENT can collide with everything.
+   public static final short MASK_PLAYER_SPECIAL_PROJECTILE = CATEGORY_ENEMY;
 
 
    public static float vectorToAngle (Vector2 vector) {

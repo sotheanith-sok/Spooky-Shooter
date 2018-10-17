@@ -4,7 +4,7 @@ import com.badlogic.ashley.core.Component;
 import com.badlogic.gdx.utils.Pool;
 
 public class MovementComponent implements Component, Pool.Poolable {
-   public boolean moveLeft, moveRight, moveUp, moveDown, shot;
+   public boolean moveLeft, moveRight, moveUp, moveDown, shot, secondary;
 
     /**
      * Resets the object for reuse. Object references should be nulled and fields may be set to default values.
@@ -16,5 +16,6 @@ public class MovementComponent implements Component, Pool.Poolable {
         moveUp=false;
         moveDown=false;
         shot=false;
+        secondary=false;
     }
 }

@@ -41,6 +41,7 @@ public class SpookyShooter extends Game {
             setScreen(new GameScreen(this, playerCount));
             break;
          case 4:
+            GameOverScreen.getScreen(this).numberOfPlayers=playerCount;
             setScreen(GameOverScreen.getScreen(this));
             break;
       }

@@ -7,6 +7,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.components.BodyComponent;
+import com.mygdx.game.components.EnemyStatsComponent;
 import com.mygdx.game.components.Scripts.Behavior;
 import com.mygdx.game.components.SteeringComponent;
 
@@ -35,19 +36,21 @@ public class BehaviorBuilder {
          String[] command=commands[i].split("\\s+");
          if(command[0].equals("move")){
             behaviors.add(move(Float.valueOf(command[1]),Float.valueOf(command[2])));
-         }else if (command[0].equals("shot")){
-            behaviors.add(shoot());
+         }else if (command[0].equals("shoot")){
+            behaviors.add(shoot(Boolean.valueOf(command[1])));
          }else if(command[0].equals("sleep")){
             behaviors.add(sleep(Float.valueOf(command[1])));
          }else if (command[0].equals("wander")){
             behaviors.add(wander(Float.valueOf(command[1])));
+         }else if(command[0].equals("rof")){
+            behaviors.add(rof(Float.valueOf(command[1])));
          }
       }
       return behaviors;
    }
 
    private Behavior move(float posX, float posY){
-      return new Behavior(posX, posY,0) {
+      return new Behavior(posX, posY,0,0) {
          @Override
          public void setBehavior(Entity entity) {
             entity.getComponent(SteeringComponent.class).steeringBehavior=
@@ -61,21 +64,52 @@ public class BehaviorBuilder {
          }
       };
    }
-   private Behavior shoot(){
-      return new Behavior() {
+   private Behavior shoot(boolean isTrue){
+      return new Behavior(isTrue) {
+         protected boolean called=false;
          @Override
          public void setBehavior(Entity entity) {
-
+            if(entity.getComponent(EnemyStatsComponent.class)!=null){
+               entity.getComponent(EnemyStatsComponent.class).shoot=this.isTrue;
+               called=true;
+            }
          }
 
          @Override
          public boolean isDone(Entity entity, float deltaTime) {
-            return true;
+            if(called==true){
+               called=false;
+               return true;
+            }
+            return false;
          }
       };
    }
+
+   private Behavior rof(float rof){
+      return new Behavior(0,0,0,rof) {
+         protected boolean called=false;
+         @Override
+         public void setBehavior(Entity entity) {
+            if(entity.getComponent(EnemyStatsComponent.class)!=null){
+               entity.getComponent(EnemyStatsComponent.class).rof=this.rof;
+               called=true;
+            }
+         }
+
+         @Override
+         public boolean isDone(Entity entity, float deltaTime) {
+            if(called==true){
+               called=false;
+               return true;
+            }
+            return false;
+         }
+      };
+   }
+
    private Behavior sleep(float time){
-      return new Behavior(0,0,time) {
+      return new Behavior(0,0,time,0) {
          private float accumulator =0;
          @Override
          public void setBehavior(Entity entity) {
@@ -95,7 +129,7 @@ public class BehaviorBuilder {
       };
    }
    private Behavior wander(float time){
-      return new Behavior(0,0,time) {
+      return new Behavior(0,0,time,0) {
          private float accumulator =0;
          private boolean applied=false;
          @Override

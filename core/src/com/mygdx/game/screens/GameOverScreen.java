@@ -4,6 +4,8 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.controllers.Controller;
+import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -24,6 +26,7 @@ public class GameOverScreen extends ScreenAdapter {
    private Gameover gameOver;
    SpriteBatch batch;
    Texture img;
+   Controller p1;
    public int numberOfPlayers;
 
    /**
@@ -36,6 +39,8 @@ public class GameOverScreen extends ScreenAdapter {
      gameOver= new Gameover();
      batch = new SpriteBatch();
      img = new Texture("GameScreen/Gfx/fourthScreen.jpg");
+     if (Controllers.getControllers().size >= 1)
+        p1 = Controllers.getControllers().get(0);
    }
 
    public static GameOverScreen getScreen(Game myGame){
@@ -56,16 +61,30 @@ public class GameOverScreen extends ScreenAdapter {
       batch.begin();
       batch.draw(img, Gdx.graphics.getWidth() / 2 - img.getWidth() / 2, Gdx.graphics.getHeight() / 5);
       batch.end();
-      if (Gdx.input.isKeyJustPressed(Input.Keys.X) ||
-          Gdx.input.isKeyJustPressed(Input.Keys.BUTTON_X)) {
-         System.out.println("Key press captured");
+      if (Gdx.input.isKeyJustPressed(Input.Keys.X) ) {
+         System.out.println("Press captured.");
+         System.out.println("Restarting.");
          ((SpookyShooter) myGame).changeScreen(3, numberOfPlayers);
       }
 
-      if (Gdx.input.isKeyJustPressed(Input.Keys.B) ||
-       Gdx.input.isKeyJustPressed(Input.Keys.BUTTON_B)) {
-         System.out.println("Key press captured");
+      if (Gdx.input.isKeyJustPressed(Input.Keys.B)) {
+         System.out.println("Press captured.");
+         System.out.println("Closing.");
          Gdx.app.exit();
+      }
+      if (p1 != null) {
+         if (p1.getButton(2)) {
+            System.out.println("Press captured");
+            ((SpookyShooter) myGame).changeScreen(3, numberOfPlayers);
+         }
+      }
+      if (p1 != null) {
+         if (p1.getButton(1)) {
+            System.out.println("Press captured");
+            System.out.println("Closing.");
+            Gdx.app.exit();
+
+         }
       }
       gameOver.act(delta);
       gameOver.draw();

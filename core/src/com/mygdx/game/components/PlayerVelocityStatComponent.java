@@ -5,14 +5,14 @@ import com.badlogic.gdx.utils.Pool;
 
 
 public class PlayerVelocityStatComponent implements Component, Pool.Poolable {
-    public float movingSpeed = 20f;
+    public float movingSpeed = 30f;
 
     /**
      * Resets the object for reuse. Object references should be nulled and fields may be set to default values.
      */
     @Override
     public void reset() {
-        movingSpeed = 20f;
+        movingSpeed = 30f;
     }
 }
 

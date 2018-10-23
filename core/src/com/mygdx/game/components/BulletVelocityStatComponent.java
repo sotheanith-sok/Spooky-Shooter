@@ -4,7 +4,7 @@ import com.badlogic.gdx.utils.Pool;
 
 public class BulletVelocityStatComponent implements Component, Pool.Poolable {
    public float movingSpeed = 50f;
-   public float rof = 0.12f;
+   public float rof = 0.05f;
    public float timer = 0;
 
     /**
@@ -13,7 +13,7 @@ public class BulletVelocityStatComponent implements Component, Pool.Poolable {
     @Override
     public void reset() {
         movingSpeed = 50f;
-        rof = 0.12f;
+        rof = 0.05f;
         timer = 0;
     }
 }

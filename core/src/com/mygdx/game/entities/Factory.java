@@ -185,8 +185,6 @@ public class Factory {
       entity.getComponent(BodyComponent.class).body = createBody("Player_1", x, y, 1);
       entity.getComponent(TransformComponent.class).scale.x = 1f;
       entity.getComponent(TransformComponent.class).scale.y = 1f;
-      entity.add(engine.createComponent(CollisionCallbackComponent.class));
-
       entity.getComponent(BodyComponent.class).body.setUserData(entity);
        applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_PLAYER_PROJECTILE, Utilities.MASK_PLAYER_PROJECTILE);
       engine.addEntity(entity);
@@ -221,9 +219,9 @@ public class Factory {
     *
     * @return an enemy.
     */
-   public Entity spawnEnemy(float x, float y) {
+   public Entity spawnEnemy1(float x, float y) {
       Entity entity = engine.createEntity();
-      entity.add(engine.createComponent(BulletVelocityStatComponent.class));
+      entity.add(engine.createComponent(EnemyStatsComponent.class));
       entity.add(engine.createComponent(TransformComponent.class));
       entity.add(engine.createComponent(BodyComponent.class));
       entity.add(engine.createComponent(TextureComponent.class));
@@ -249,6 +247,35 @@ public class Factory {
 
       return entity;
    }
+   public Entity spawnEnemy2(float x, float y) {
+      Entity entity = engine.createEntity();
+      entity.add(engine.createComponent(EnemyStatsComponent.class));
+      entity.add(engine.createComponent(TransformComponent.class));
+      entity.add(engine.createComponent(BodyComponent.class));
+      entity.add(engine.createComponent(TextureComponent.class));
+      entity.add(engine.createComponent(IsEnemyComponent.class));
+      entity.add(engine.createComponent(CollisionCallbackComponent.class));
+
+      entity.getComponent(CollisionCallbackComponent.class).beginContactCallback =
+              new EnemyCollisionCallback();
+      entity.getComponent(TextureComponent.class).textureRegion = createTexture("GameScreen/Player.atlas", "Player_1", 0);
+      entity.getComponent(BodyComponent.class).body = createBody("Player_1", x, y, 1);
+      entity.getComponent(BodyComponent.class).body.setType(BodyDef.BodyType.DynamicBody);
+      entity.getComponent(TransformComponent.class).scale.x = 2f;
+      entity.getComponent(TransformComponent.class).scale.y = 2f;
+      entity.getComponent(BodyComponent.class).body.setUserData(entity);
+      applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_ENEMY, Utilities.MASK_ENEMY);
+
+      entity.add(engine.createComponent(SteeringComponent.class));
+      entity.getComponent(SteeringComponent.class).body=entity.getComponent(BodyComponent.class).body;
+
+      entity.add(engine.createComponent(BehaviorComponent.class));
+      entity.getComponent(BehaviorComponent.class).behaviors= BehaviorBuilder.getInstance().load("GameScreen/Behaviors/Behavior2.txt");
+      engine.addEntity(entity);
+
+      return entity;
+   }
+
 
    /**
     * Access Orthographic Camera  for this game.
@@ -286,6 +313,7 @@ public class Factory {
       engine.addSystem(new LaserSystem());
       new CollisionCallbackSystem(world);
       engine.addSystem(new DetectEndGameSystem());
+      engine.addSystem(new EnemyFireSystem());
    }
 
    /**
@@ -379,5 +407,21 @@ public class Factory {
            createAnInvisibleWall(x,i,scale);
            createAnInvisibleWall(x+width,i,scale);
        }
+   }
+
+   public Entity createEnemyBullet (float x, float y){
+      Entity entity = engine.createEntity();
+      entity.add(engine.createComponent(TransformComponent.class));
+      entity.add(engine.createComponent(BodyComponent.class));
+      entity.add(engine.createComponent(TextureComponent.class));
+      entity.add(engine.createComponent(IsEnemyBulletComponent.class));
+      entity.getComponent(TextureComponent.class).textureRegion = createTexture("GameScreen/Player.atlas", "Player_1", 0);
+      entity.getComponent(BodyComponent.class).body = createBody("Player_1", x, y, 1);
+      entity.getComponent(TransformComponent.class).scale.x = 1f;
+      entity.getComponent(TransformComponent.class).scale.y = 1f;
+      entity.getComponent(BodyComponent.class).body.setUserData(entity);
+      applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_ENEMY_PROJECTILE, Utilities.MASK_ENEMY_PROJECTILE);
+      engine.addEntity(entity);
+      return entity;
    }
 }

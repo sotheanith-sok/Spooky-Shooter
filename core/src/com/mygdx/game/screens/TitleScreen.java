@@ -4,9 +4,12 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.controllers.*;
+import com.badlogic.gdx.controllers.mappings.Xbox;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector3;
 import com.mygdx.game.SpookyShooter;
 import com.mygdx.game.utilities.Utilities;
 
@@ -16,6 +19,7 @@ import com.mygdx.game.utilities.Utilities;
 public class TitleScreen extends ScreenAdapter {
    SpriteBatch batch;
    Texture img;
+   Controller p1;
    /**
     * This is the reference to the game object.
     */
@@ -31,8 +35,11 @@ public class TitleScreen extends ScreenAdapter {
       this.myGame = myGame;
       batch = new SpriteBatch();
       img = new Texture("GameScreen/Gfx/firstscreen.jpg");
-      System.out.println(Utilities.FRUSTUM_WIDTH);
-      System.out.println(Utilities.FRUSTUM_HEIGHT);
+      if (Controllers.getControllers().size >= 1)
+         p1 = Controllers.getControllers().get(0);
+      for(Controller con : Controllers.getControllers()) {
+         System.out.println(con.getName());
+      }
    }
 
    /**
@@ -47,9 +54,20 @@ public class TitleScreen extends ScreenAdapter {
       batch.begin();
       batch.draw(img, Gdx.graphics.getWidth() / 2 - img.getWidth() / 2, Gdx.graphics.getHeight() / 2 - img.getHeight() / 2);
       batch.end();
+
       if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
-         System.out.println("Key press captured");
+         System.out.println("Press captured");
+         long start = System.currentTimeMillis();
+         while (System.currentTimeMillis() < start + 1000) {}
          ((SpookyShooter) myGame).changeScreen(2, 0);
+      }
+      if (p1 != null) {
+         if (p1.getButton(0)) {
+            System.out.println("Press captured");
+            long start = System.currentTimeMillis();
+            while (System.currentTimeMillis() < start + 1000) {}
+            ((SpookyShooter) myGame).changeScreen(2, 0);
+         }
       }
    }
 }

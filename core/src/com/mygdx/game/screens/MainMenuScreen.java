@@ -4,6 +4,8 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.controllers.Controller;
+import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -15,6 +17,7 @@ import com.mygdx.game.SpookyShooter;
 public class MainMenuScreen extends ScreenAdapter {
    SpriteBatch batch;
    Texture img;
+   Controller p1;
    /**
     * This is the reference to the game object.
     */
@@ -30,6 +33,8 @@ public class MainMenuScreen extends ScreenAdapter {
       this.myGame = myGame;
       batch = new SpriteBatch();
       img = new Texture("GameScreen/Gfx/secondScreen.jpg");
+      if (Controllers.getControllers().size >= 1)
+         p1 = Controllers.getControllers().get(0);
    }
 
    /**
@@ -44,15 +49,28 @@ public class MainMenuScreen extends ScreenAdapter {
       batch.begin();
       batch.draw(img, Gdx.graphics.getWidth() / 2 - img.getWidth() / 2, Gdx.graphics.getHeight() / 2 - img.getHeight() / 2);
       batch.end();
-      if (Gdx.input.isKeyJustPressed(Input.Keys.X) ||
-          Gdx.input.isKeyJustPressed(Input.Keys.BUTTON_X)) {
-         System.out.println("Key press captured");
+      if (Gdx.input.isKeyJustPressed(Input.Keys.A)) {
+         System.out.println("Press captured");
          ((SpookyShooter) myGame).changeScreen(3, 1);
       }
-      if (Gdx.input.isKeyJustPressed(Input.Keys.B) ||
-          Gdx.input.isKeyJustPressed(Input.Keys.BUTTON_B)) {
-         System.out.println("Key press captured");
+      if (p1 != null) {
+         if (p1.getButton(0)) {
+            System.out.println("Press captured");
+            ((SpookyShooter) myGame).changeScreen(3, 1);
+         }
+      }
+      if (Controllers.getControllers().size >= 2 && p1.getButton(2)) {
+         System.out.println("Press captured");
          ((SpookyShooter) myGame).changeScreen(3, 2);
       }
+      if (Controllers.getControllers().size >= 3 && p1.getButton(1)) {
+         System.out.println("Press captured");
+         ((SpookyShooter) myGame).changeScreen(3, 3);
+      }
+      if (Controllers.getControllers().size >= 4 && p1.getButton(3)) {
+         System.out.println("Press captured");
+         ((SpookyShooter) myGame).changeScreen(3, 4);
+      }
+
    }
 }

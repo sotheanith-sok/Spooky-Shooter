@@ -26,13 +26,13 @@ public class IngameOverlay extends Stage {
           createUI(0, Utilities.FRUSTUM_HEIGHT-4,true);
       }
       if(playerCount>=2){
-          createUI(Utilities.FRUSTUM_WIDTH-22,Utilities.FRUSTUM_HEIGHT-4,false);
+          createUI(Utilities.FRUSTUM_WIDTH-23,Utilities.FRUSTUM_HEIGHT-4,false);
       }
       if(playerCount>=3){
           createUI(0,0,true);
       }
       if(playerCount>=4){
-          createUI(Utilities.FRUSTUM_WIDTH-22,0,true);
+          createUI(Utilities.FRUSTUM_WIDTH-23,0,true);
       }
 
      /* if(playerCount>3){

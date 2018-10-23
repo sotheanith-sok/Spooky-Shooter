@@ -20,6 +20,7 @@ import com.mygdx.game.systems.CollisionCallbackSystem;
 import com.mygdx.game.systems.PhysicsDebugSystem;
 import com.mygdx.game.systems.PhysicsSystem;
 import com.mygdx.game.systems.RenderingSystem;
+import com.mygdx.game.utilities.BehaviorBuilder;
 import com.mygdx.game.utilities.SteeringPresets;
 import com.mygdx.game.utilities.Utilities;
 
@@ -222,7 +223,6 @@ public class Factory {
     */
    public Entity spawnEnemy(float x, float y) {
       Entity entity = engine.createEntity();
-      entity.add(engine.createComponent(MovementComponent.class));
       entity.add(engine.createComponent(BulletVelocityStatComponent.class));
       entity.add(engine.createComponent(TransformComponent.class));
       entity.add(engine.createComponent(BodyComponent.class));
@@ -242,7 +242,9 @@ public class Factory {
 
       entity.add(engine.createComponent(SteeringComponent.class));
       entity.getComponent(SteeringComponent.class).body=entity.getComponent(BodyComponent.class).body;
-      entity.getComponent(SteeringComponent.class).steeringBehavior=SteeringPresets.getSeek(entity.getComponent(SteeringComponent.class),player.getComponent(SteeringComponent.class));
+
+      entity.add(engine.createComponent(BehaviorComponent.class));
+      entity.getComponent(BehaviorComponent.class).behaviors= BehaviorBuilder.getInstance().load("GameScreen/Behaviors/Behavior1.txt");
       engine.addEntity(entity);
 
       return entity;

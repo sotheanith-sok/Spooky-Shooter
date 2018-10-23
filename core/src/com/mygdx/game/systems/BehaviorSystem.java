@@ -5,7 +5,9 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.mygdx.game.components.BehaviorComponent;
-import com.mygdx.game.components.Scripts.Behavior;
+import com.mygdx.game.components.BodyComponent;
+import com.mygdx.game.components.SteeringComponent;
+import com.sun.javafx.css.Stylesheet;
 
 public class BehaviorSystem extends IteratingSystem {
    private ComponentMapper<BehaviorComponent> bcm;
@@ -23,9 +25,19 @@ public class BehaviorSystem extends IteratingSystem {
     */
    @Override
    protected void processEntity(Entity entity, float deltaTime) {
-      BehaviorComponent behaviorComponent=bcm.get(entity);
-      if (behaviorComponent.behavior!=null){
-         behaviorComponent.behavior.runBehavior(entity,deltaTime);
+      BehaviorComponent bc=bcm.get(entity);
+      if(bc.behaviors!=null && bc.behaviors.size>0){
+         //Check for done
+         if(bc.behaviors.get(bc.count).isDone(entity,deltaTime)){
+            bc.count++;
+            if(bc.count>=bc.behaviors.size){
+               bc.count=0;
+            }
+            entity.getComponent(SteeringComponent.class).steeringBehavior=null;
+         }
+         if(entity.getComponent(SteeringComponent.class).steeringBehavior==null){
+            bc.behaviors.get(bc.count).setBehavior(entity);
+         }
       }
    }
 }

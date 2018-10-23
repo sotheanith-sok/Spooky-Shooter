@@ -3,10 +3,9 @@ package com.mygdx.game.systems;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.FloatArray;
 import com.mygdx.game.entities.Factory;
+import com.mygdx.game.utilities.Utilities;
 
 public class EnemiesSpawnSystem extends IteratingSystem {
 
@@ -18,7 +17,7 @@ public class EnemiesSpawnSystem extends IteratingSystem {
       enemySpawnData.add(new EnemySpawnData(2) {
          @Override
          public void spawn() {
-            Factory.getFactory().spawnEnemy(MathUtils.random(10f,110f),MathUtils.random(30f,60f));
+            Factory.getFactory().spawnEnemy(Utilities.FRUSTUM_WIDTH/2,Utilities.FRUSTUM_HEIGHT+10);
          }
       });
 

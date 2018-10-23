@@ -15,8 +15,8 @@ public class SteeringComponent implements Steerable<Vector2>, Component, Pool.Po
   public Body body;
 
    // Steering data
-   float maxLinearSpeed = 2f;	// stores the max speed the entity can go
-   float maxLinearAcceleration = 5f;	// stores the max acceleration
+   float maxLinearSpeed = 10f;	// stores the max speed the entity can go
+   float maxLinearAcceleration = 10f;	// stores the max acceleration
    float maxAngularSpeed =50f;		// the max turning speed
    float maxAngularAcceleration = 5f;// the max turning acceleration
    float zeroThreshold = 0.1f;	// how accurate should checks be (0.0000001f will mean the entity must get within 0.0000001f of

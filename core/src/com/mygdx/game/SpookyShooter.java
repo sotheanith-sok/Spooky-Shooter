@@ -3,11 +3,13 @@ package com.mygdx.game;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.utils.Array;
+import com.mygdx.game.components.Scripts.Behavior;
 import com.mygdx.game.screens.GameOverScreen;
 import com.mygdx.game.screens.GameScreen;
 import com.mygdx.game.screens.MainMenuScreen;
 import com.mygdx.game.screens.TitleScreen;
 import com.mygdx.game.ui.Gameover;
+import com.mygdx.game.utilities.BehaviorBuilder;
 
 /**
  * This is the entry point to the game.

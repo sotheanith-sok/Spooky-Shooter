@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.game.SpookyShooter;
+import com.mygdx.game.utilities.Utilities;
 
 /**
  * This is a title screen. It will be the first screen that will be display on the start of the application
@@ -30,6 +31,8 @@ public class TitleScreen extends ScreenAdapter {
       this.myGame = myGame;
       batch = new SpriteBatch();
       img = new Texture("GameScreen/Gfx/firstscreen.jpg");
+      System.out.println(Utilities.FRUSTUM_WIDTH);
+      System.out.println(Utilities.FRUSTUM_HEIGHT);
    }
 
    /**

@@ -145,7 +145,7 @@ limitMemory=true
 useIndexes=true
 
 scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
-inputFiles=[{path:Gfx/Laser_0_12.png,type:Input,regionName:null},{path:Gfx/Laser_0_02.png,type:Input,regionName:null},{path:Gfx/Laser_0_03.png,type:Input,regionName:null},{path:Gfx/Laser_0_04.png,type:Input,regionName:null},{path:Gfx/Laser_0_05.png,type:Input,regionName:null},{path:Gfx/Laser_0_06.png,type:Input,regionName:null},{path:Gfx/Laser_0_07.png,type:Input,regionName:null},{path:Gfx/Laser_0_08.png,type:Input,regionName:null},{path:Gfx/Laser_0_09.png,type:Input,regionName:null},{path:Gfx/Laser_0_10.png,type:Input,regionName:null},{path:Gfx/Laser_0_11.png,type:Input,regionName:null},{path:Gfx/Laser_0_01.png,type:Input,regionName:null}]
+inputFiles=[{path:Gfx/Laser_0_0.png,type:Input,regionName:null}]
 
 
 -PROJ-

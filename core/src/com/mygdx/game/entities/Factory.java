@@ -12,7 +12,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.Pool;
 import com.badlogic.gdx.utils.Pools;
 import com.mygdx.game.components.*;
 import com.mygdx.game.components.Scripts.EnemyCollisionCallback;
@@ -24,7 +23,6 @@ import com.mygdx.game.systems.PhysicsDebugSystem;
 import com.mygdx.game.systems.PhysicsSystem;
 import com.mygdx.game.systems.RenderingSystem;
 import com.mygdx.game.utilities.BehaviorBuilder;
-import com.mygdx.game.utilities.SteeringPresets;
 import com.mygdx.game.utilities.Utilities;
 
 public class Factory {
@@ -164,7 +162,7 @@ public class Factory {
       entity.getComponent(TransformComponent.class).scale.x = 1f;
       entity.getComponent(TransformComponent.class).scale.y = 1f;
       entity.getComponent(BodyComponent.class).body.setUserData(entity);
-      applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_PLAYER, Utilities.MASK_PLAYER);
+      applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_PLAYER, Utilities.MASK_PLAYER,false);
       entity.getComponent(SteeringComponent.class).body=entity.getComponent(BodyComponent.class).body;
       this.player=entity;
       return entity;
@@ -191,7 +189,7 @@ public class Factory {
       entity.getComponent(TransformComponent.class).scale.x = 0.5f;
       entity.getComponent(TransformComponent.class).scale.y = 0.5f;
       entity.getComponent(BodyComponent.class).body.setUserData(entity);
-       applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_PLAYER_PROJECTILE, Utilities.MASK_PLAYER_PROJECTILE);
+       applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_PLAYER_PROJECTILE, Utilities.MASK_PLAYER_PROJECTILE,true);
       engine.addEntity(entity);
        return entity;
    }
@@ -217,7 +215,7 @@ public class Factory {
 
       entity.getComponent(BodyComponent.class).body.setUserData(entity);
       applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_PLAYER_SPECIAL_PROJECTILE,
-       Utilities.MASK_PLAYER_SPECIAL_PROJECTILE);
+       Utilities.MASK_PLAYER_SPECIAL_PROJECTILE,true);
       engine.addEntity(entity);
       return entity;
    }
@@ -244,7 +242,8 @@ public class Factory {
       entity.getComponent(TransformComponent.class).scale.x = 1f;
       entity.getComponent(TransformComponent.class).scale.y = 1f;
       entity.getComponent(BodyComponent.class).body.setUserData(entity);
-      applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_ENEMY, Utilities.MASK_ENEMY);
+      applyCollisionFilter(entity.getComponent(BodyComponent.class).body,
+              Utilities.CATEGORY_ENEMY, Utilities.MASK_ENEMY,true);
 
       entity.add(engine.createComponent(SteeringComponent.class));
       entity.getComponent(SteeringComponent.class).body=entity.getComponent(BodyComponent.class).body;
@@ -272,7 +271,8 @@ public class Factory {
       entity.getComponent(TransformComponent.class).scale.x = 1f;
       entity.getComponent(TransformComponent.class).scale.y = 1f;
       entity.getComponent(BodyComponent.class).body.setUserData(entity);
-      applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_ENEMY, Utilities.MASK_ENEMY);
+      applyCollisionFilter(entity.getComponent(BodyComponent.class).body,
+              Utilities.CATEGORY_ENEMY, Utilities.MASK_ENEMY,true);
 
       entity.add(engine.createComponent(SteeringComponent.class));
       entity.getComponent(SteeringComponent.class).body=entity.getComponent(BodyComponent.class).body;
@@ -351,6 +351,7 @@ public class Factory {
       Body body = world.createBody(bodyDef);
       FixtureDef fixtureDef = new FixtureDef();
       fixtureDef.density = 1;
+      fixtureDef.isSensor=true;
       bodyEditorLoader.attachFixture(body, nameOfBody, fixtureDef, scale);
       body.setFixedRotation(true);
       return body;
@@ -375,12 +376,13 @@ public class Factory {
     * @param categoryBits which category is this body belong to. LOOK AT UTILITIES for more detail.
     * @param maskingBits whiich category should this body collide with. LOOK AT UTILITIES for more detail.
     */
-   public void applyCollisionFilter(Body body, short categoryBits, short maskingBits) {
+   public void applyCollisionFilter(Body body, short categoryBits, short maskingBits, boolean isSensor) {
       Array<Fixture> fixtures = body.getFixtureList();
       for (Fixture fixture : fixtures) {
          Filter filter = fixture.getFilterData();
          filter.categoryBits = categoryBits;
          filter.maskBits = maskingBits;
+         fixture.setSensor(isSensor);
          fixture.setFilterData(filter);
       }
    }
@@ -393,7 +395,8 @@ public class Factory {
        entity.getComponent(BodyComponent.class).body = createBody("Bullet_1",x, y, scale);
        entity.getComponent(BodyComponent.class).body.setUserData(entity);
        entity.getComponent(BodyComponent.class).body.setType(BodyDef.BodyType.StaticBody);
-       applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_ENVIRONMENT, Utilities.MASK_ENVIRONMENT);
+       applyCollisionFilter(entity.getComponent(BodyComponent.class).body,
+               Utilities.CATEGORY_ENVIRONMENT, Utilities.MASK_ENVIRONMENT,false);
         return  entity;
    }
 
@@ -429,7 +432,7 @@ public class Factory {
       entity.getComponent(TransformComponent.class).scale.x = 1f;
       entity.getComponent(TransformComponent.class).scale.y = 1f;
       entity.getComponent(BodyComponent.class).body.setUserData(entity);
-      applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_ENEMY_PROJECTILE, Utilities.MASK_ENEMY_PROJECTILE);
+      applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_ENEMY_PROJECTILE, Utilities.MASK_ENEMY_PROJECTILE, true);
       engine.addEntity(entity);
       return entity;
    }

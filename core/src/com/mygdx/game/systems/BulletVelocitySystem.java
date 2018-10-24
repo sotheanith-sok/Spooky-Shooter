@@ -42,8 +42,12 @@ public class BulletVelocitySystem extends IntervalSystem {
          BodyComponent bC = bm.get(entity);
          bvc.timer += Utilities.MAX_STEP_TIME;
          if (mC.shot && bvc.timer > bvc.rof) {
-            Entity bullet = Factory.getFactory().shoot(bC.body.getPosition().x, bC.body.getPosition().y, entity.getComponent(IsPlayerComponent.class).playerNum);
-            bullet.getComponent(BodyComponent.class).body.setLinearVelocity(0,bvc.movingSpeed);
+            Entity bullet1 = Factory.getFactory().shoot(bC.body.getPosition().x, bC.body.getPosition().y, entity.getComponent(IsPlayerComponent.class).playerNum);
+            Entity bullet2 = Factory.getFactory().shoot(bC.body.getPosition().x - 1, bC.body.getPosition().y, entity.getComponent(IsPlayerComponent.class).playerNum);
+            Entity bullet3 = Factory.getFactory().shoot(bC.body.getPosition().x + 1, bC.body.getPosition().y, entity.getComponent(IsPlayerComponent.class).playerNum);
+            bullet1.getComponent(BodyComponent.class).body.setLinearVelocity(0,bvc.movingSpeed);
+            bullet2.getComponent(BodyComponent.class).body.setLinearVelocity(0,bvc.movingSpeed);
+            bullet3.getComponent(BodyComponent.class).body.setLinearVelocity(0,bvc.movingSpeed);
             bvc.timer = 0;
          }
 

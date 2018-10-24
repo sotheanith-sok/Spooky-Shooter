@@ -41,11 +41,13 @@ public class LaserSystem extends IntervalSystem {
          IsLaserComponent lc = lm.get(entity);
          if (mC.secondary) {
             if (lc.laser == null) {
-               lc.laser = Factory.getFactory().laser(bC.body.getPosition().x, bC.body.getPosition().y,
+               lc.laser = Factory.getFactory().laser(bC.body.getPosition().x, bC.body.getPosition().y + 33,
                 entity.getComponent(IsPlayerComponent.class).playerNum);
             }
             else {
-               lc.laser.getComponent(BodyComponent.class).body.setTransform(bC.body.getPosition().x, bC.body.getPosition().y,
+               lc.laser.getComponent(BodyComponent.class).body.setTransform(
+                bC.body.getPosition().x - 0.25f + ((float)Math.random()/2), //this adds a neat lazor wiggle
+                bC.body.getPosition().y +33,
                 0);
             }
          }

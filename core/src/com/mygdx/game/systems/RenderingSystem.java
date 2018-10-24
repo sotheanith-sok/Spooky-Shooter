@@ -7,7 +7,9 @@ import com.badlogic.ashley.systems.SortedIteratingSystem;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Interpolation;
 import com.mygdx.game.components.BodyComponent;
 import com.mygdx.game.components.TextureComponent;
@@ -31,6 +33,8 @@ public class RenderingSystem extends SortedIteratingSystem {
     */
    private SpriteBatch spriteBatch;
 
+   private float stateTime;
+
    /**
     * Constructor
     */
@@ -43,6 +47,7 @@ public class RenderingSystem extends SortedIteratingSystem {
       this.spriteBatch = spriteBatch;
       this.camera = camera;
       accumulator=0f;
+      stateTime=0f;
    }
 
    @Override
@@ -52,11 +57,11 @@ public class RenderingSystem extends SortedIteratingSystem {
       spriteBatch.enableBlending();
 
       float frameTime=Math.min(deltaTime,0.25f);
-      accumulator+=deltaTime;
+      accumulator+=frameTime;
       while (accumulator>=Utilities.MAX_STEP_TIME){
           accumulator-=Utilities.MAX_STEP_TIME;
       }
-
+      stateTime+=deltaTime;
       super.update(accumulator/deltaTime);
    }
 
@@ -73,11 +78,12 @@ public class RenderingSystem extends SortedIteratingSystem {
       TextureComponent textureComponent = textureMapper.get(entity);
       TransformComponent transformComponent = transformMapper.get(entity);
       if (textureComponent != null && !transformComponent.isHidden) {
-         float width = textureComponent.textureRegion.getRegionWidth();
-         float height = textureComponent.textureRegion.getRegionHeight();
+         TextureRegion textureRegion= textureComponent.textureRegionAnimation.getKeyFrame(stateTime,true);
+         float width = textureRegion.getRegionWidth();
+         float height = textureRegion.getRegionHeight();
          float originX = width / 2f;
          float originY = height / 2f;
-         spriteBatch.draw(textureComponent.textureRegion,
+         spriteBatch.draw(textureRegion,
                  Interpolation.linear.apply(transformComponent.previousPosition.x,transformComponent.position.x,deltaTime) - originX,
                  Interpolation.linear.apply(transformComponent.previousPosition.y,transformComponent.position.y,deltaTime) - originY,
                  originX,
@@ -88,7 +94,6 @@ public class RenderingSystem extends SortedIteratingSystem {
                  Utilities.PixelsToMeters(transformComponent.scale.y),
                  transformComponent.rotation);
       }
-
       spriteBatch.end();
    }
 

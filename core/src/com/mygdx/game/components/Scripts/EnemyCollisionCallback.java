@@ -1,13 +1,14 @@
 package com.mygdx.game.components.Scripts;
 
 import com.badlogic.ashley.core.Entity;
+import com.badlogic.gdx.utils.Pool;
 import com.mygdx.game.components.IsBulletComponent;
 import com.mygdx.game.components.IsLaserComponent;
 import com.mygdx.game.components.NeedToRemoveComponent;
 import com.mygdx.game.entities.Factory;
 import com.mygdx.game.screens.GameScreen;
 
-public class EnemyCollisionCallback  implements CollisionCallback {
+public class EnemyCollisionCallback  implements CollisionCallback, Pool.Poolable {
 
    @Override
    public void run(Entity thisObject, Entity otherObject) {
@@ -47,5 +48,13 @@ public class EnemyCollisionCallback  implements CollisionCallback {
                     .updateScore(3 , GameScreen.getGameScreen().score3);
             break;
       }
+   }
+
+   /**
+    * Resets the object for reuse. Object references should be nulled and fields may be set to default values.
+    */
+   @Override
+   public void reset() {
+
    }
 }

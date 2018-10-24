@@ -1,20 +1,34 @@
 
-Player.png
-size: 512,512
+Bullet.png
+size: 128,64
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-Player_0
+Bullet_0
   rotate: false
   xy: 2, 2
-  size: 10, 10
-  orig: 10, 10
+  size: 32, 32
+  orig: 32, 32
   offset: 0, 0
   index: 0
-Player_1
+Bullet_0
   rotate: false
-  xy: 2, 2
-  size: 10, 10
-  orig: 10, 10
+  xy: 36, 2
+  size: 32, 32
+  orig: 32, 32
   offset: 0, 0
-  index: 0
+  index: 1
+Bullet_0
+  rotate: false
+  xy: 36, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 3
+Bullet_0
+  rotate: false
+  xy: 70, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: 2

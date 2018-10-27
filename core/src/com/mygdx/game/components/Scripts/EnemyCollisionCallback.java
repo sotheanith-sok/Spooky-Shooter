@@ -2,6 +2,7 @@ package com.mygdx.game.components.Scripts;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.utils.Pool;
+import com.mygdx.game.components.EnemyStatsComponent;
 import com.mygdx.game.components.IsBulletComponent;
 import com.mygdx.game.components.IsLaserComponent;
 import com.mygdx.game.components.NeedToRemoveComponent;
@@ -13,14 +14,25 @@ public class EnemyCollisionCallback  implements CollisionCallback, Pool.Poolable
    @Override
    public void run(Entity thisObject, Entity otherObject) {
        if(otherObject.getComponent(IsBulletComponent.class)!=null){
-              updateScore(otherObject.getComponent(IsBulletComponent.class).playerNum);
-           thisObject.add(Factory.getFactory().getEngine().createComponent(NeedToRemoveComponent.class));
-           otherObject.add(Factory.getFactory().getEngine().createComponent(NeedToRemoveComponent.class));
+          if(thisObject.getComponent(EnemyStatsComponent.class).health >= 0) {
+             thisObject.getComponent(EnemyStatsComponent.class).health -= 100;
+             otherObject.add(Factory.getFactory().getEngine().createComponent(NeedToRemoveComponent.class));
+          }
+          else {
+             updateScore(otherObject.getComponent(IsBulletComponent.class).playerNum);
+             thisObject.add(Factory.getFactory().getEngine().createComponent(NeedToRemoveComponent.class));
+             otherObject.add(Factory.getFactory().getEngine().createComponent(NeedToRemoveComponent.class));
+          }
        }
 
       if(otherObject.getComponent(IsLaserComponent.class)!=null){
+         if(thisObject.getComponent(EnemyStatsComponent.class).health >= 0) {
+            thisObject.getComponent(EnemyStatsComponent.class).health -= 100;
+         }
+         else {
             updateScore(otherObject.getComponent(IsLaserComponent.class).playerNum);
-         thisObject.add(Factory.getFactory().getEngine().createComponent(NeedToRemoveComponent.class));
+            thisObject.add(Factory.getFactory().getEngine().createComponent(NeedToRemoveComponent.class));
+         }
       }
 
    }

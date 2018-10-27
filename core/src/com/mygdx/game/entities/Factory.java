@@ -182,7 +182,6 @@ public class Factory {
       entity.add(engine.createComponent(BodyComponent.class));
       entity.add(engine.createComponent(TextureComponent.class));
       entity.add(engine.createComponent(IsBulletComponent.class));
-
       entity.getComponent(IsBulletComponent.class).playerNum = playerNum;
       entity.getComponent(TextureComponent.class).textureRegionAnimation = createTexture("GameScreen/Player.atlas", "Player_1", 1);
       entity.getComponent(BodyComponent.class).body = createBody("Player_1", x, y, 0.35f);
@@ -225,36 +224,7 @@ public class Factory {
     *
     * @return an enemy.
     */
-   public Entity spawnEnemy1(float x, float y) {
-      Entity entity = engine.createEntity();
-      entity.add(engine.createComponent(EnemyStatsComponent.class));
-      entity.add(engine.createComponent(TransformComponent.class));
-      entity.add(engine.createComponent(BodyComponent.class));
-      entity.add(engine.createComponent(TextureComponent.class));
-      entity.add(engine.createComponent(IsEnemyComponent.class));
-      entity.add(engine.createComponent(CollisionCallbackComponent.class));
-
-       entity.getComponent(CollisionCallbackComponent.class).beginContactCallback =
-               Pools.get(EnemyCollisionCallback.class).obtain();
-      entity.getComponent(TextureComponent.class).textureRegionAnimation = createTexture("GameScreen/Enemies.atlas", "Enemies_0", 5);
-      entity.getComponent(BodyComponent.class).body = createBody("Enemies_0", x, y, 2f);
-      entity.getComponent(BodyComponent.class).body.setType(BodyDef.BodyType.DynamicBody);
-      entity.getComponent(TransformComponent.class).scale.x = 1f;
-      entity.getComponent(TransformComponent.class).scale.y = 1f;
-      entity.getComponent(BodyComponent.class).body.setUserData(entity);
-      applyCollisionFilter(entity.getComponent(BodyComponent.class).body,
-              Utilities.CATEGORY_ENEMY, Utilities.MASK_ENEMY,true);
-
-      entity.add(engine.createComponent(SteeringComponent.class));
-      entity.getComponent(SteeringComponent.class).body=entity.getComponent(BodyComponent.class).body;
-
-      entity.add(engine.createComponent(BehaviorComponent.class));
-      entity.getComponent(BehaviorComponent.class).behaviors= BehaviorBuilder.getInstance().load("GameScreen/Behaviors/Behavior1.txt");
-      engine.addEntity(entity);
-
-      return entity;
-   }
-   public Entity spawnEnemy2(float x, float y) {
+   public Entity spawnEnemy1(float x, float y, String behavior) {
       Entity entity = engine.createEntity();
       entity.add(engine.createComponent(EnemyStatsComponent.class));
       entity.add(engine.createComponent(TransformComponent.class));
@@ -264,7 +234,7 @@ public class Factory {
       entity.add(engine.createComponent(CollisionCallbackComponent.class));
 
       entity.getComponent(CollisionCallbackComponent.class).beginContactCallback =
-              Pools.get(EnemyCollisionCallback.class).obtain();
+       Pools.get(EnemyCollisionCallback.class).obtain();
       entity.getComponent(TextureComponent.class).textureRegionAnimation = createTexture("GameScreen/Enemies.atlas", "Enemies_0", 5);
       entity.getComponent(BodyComponent.class).body = createBody("Enemies_0", x, y, 2);
       entity.getComponent(BodyComponent.class).body.setType(BodyDef.BodyType.DynamicBody);
@@ -272,17 +242,18 @@ public class Factory {
       entity.getComponent(TransformComponent.class).scale.y = 1f;
       entity.getComponent(BodyComponent.class).body.setUserData(entity);
       applyCollisionFilter(entity.getComponent(BodyComponent.class).body,
-              Utilities.CATEGORY_ENEMY, Utilities.MASK_ENEMY,true);
+       Utilities.CATEGORY_ENEMY, Utilities.MASK_ENEMY,true);
 
       entity.add(engine.createComponent(SteeringComponent.class));
       entity.getComponent(SteeringComponent.class).body=entity.getComponent(BodyComponent.class).body;
-
+      entity.getComponent(EnemyStatsComponent.class).health = 900;
       entity.add(engine.createComponent(BehaviorComponent.class));
       entity.getComponent(BehaviorComponent.class).behaviors= BehaviorBuilder.getInstance().load("GameScreen/Behaviors/Behavior2.txt");
       engine.addEntity(entity);
 
       return entity;
    }
+
 
 
    /**

@@ -17,8 +17,8 @@ public class EnemiesSpawnSystem extends IteratingSystem {
       enemySpawnData.add(new EnemySpawnData(1) {
          @Override
          public void spawn() {
-            Factory.getFactory().spawnEnemy1(Utilities.FRUSTUM_WIDTH/2,Utilities.FRUSTUM_HEIGHT+10);
-            Factory.getFactory().spawnEnemy2(Utilities.FRUSTUM_WIDTH/2,Utilities.FRUSTUM_HEIGHT+10);
+            Factory.getFactory().spawnEnemy1(Utilities.FRUSTUM_WIDTH/2,Utilities.FRUSTUM_HEIGHT+10, "GameScreen/Behaviors/Behavior1.txt");
+            Factory.getFactory().spawnEnemy1(Utilities.FRUSTUM_WIDTH/2,Utilities.FRUSTUM_HEIGHT+10, "GameScreen/Behaviors/Behavior2.txt");
          }
       });
 

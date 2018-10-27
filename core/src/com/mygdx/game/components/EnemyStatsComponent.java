@@ -9,6 +9,7 @@ public class EnemyStatsComponent implements Component, Pool.Poolable {
    public boolean shoot=false;
    public float timer=0f;
    public float speed=10f;
+   public int health;
    /**
     * Resets the object for reuse. Object references should be nulled and fields may be set to default values.
     */

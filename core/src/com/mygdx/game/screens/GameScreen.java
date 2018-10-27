@@ -74,10 +74,10 @@ public class GameScreen extends ScreenAdapter {
    public void render(float delta) {
       Gdx.gl.glClearColor(0, 0, 0, 1);
       Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-      batch.begin();
-      batch.draw(background,0, counter,Utilities.FRUSTUM_WIDTH, Utilities.FRUSTUM_HEIGHT);
-      batch.end();
       engine.update(delta);
+      batch.begin();
+      batch.draw(background,0, counter,Utilities.FRUSTUM_WIDTH, Utilities.FRUSTUM_HEIGHT+10);
+      batch.end();
       timer += (delta * MathUtils.random(100));
       ui.draw();
       if (Gdx.input.isKeyJustPressed(Input.Keys.G)) {

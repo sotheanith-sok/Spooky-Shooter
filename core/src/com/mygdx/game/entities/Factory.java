@@ -263,7 +263,7 @@ public class Factory {
       entity.getComponent(SteeringComponent.class).body=entity.getComponent(BodyComponent.class).body;
       entity.getComponent(EnemyStatsComponent.class).health = 900;
       entity.add(engine.createComponent(BehaviorComponent.class));
-      entity.getComponent(BehaviorComponent.class).behaviors= BehaviorBuilder.getInstance().load("GameScreen/Behaviors/Behavior2.txt");
+      entity.getComponent(BehaviorComponent.class).behaviors= BehaviorBuilder.getInstance().load(behavior);
       engine.addEntity(entity);
 
       return entity;

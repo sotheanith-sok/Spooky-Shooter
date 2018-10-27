@@ -7,81 +7,6 @@
 {
 	class: com.mygdx.game.ui.Gameover$Player
 	name: Player 0
-	score: 930
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 930
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 930
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 930
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 930
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 880
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 880
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 880
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 880
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 670
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 670
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 670
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 670
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 670
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 640
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
 	score: 2930
 }
 {
@@ -152,7 +77,47 @@
 {
 	class: com.mygdx.game.ui.Gameover$Player
 	name: Player 0
-	score: 870
+	score: 930
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 930
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 930
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 930
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 930
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 880
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 880
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 880
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 880
 }
 {
 	class: com.mygdx.game.ui.Gameover$Player
@@ -172,7 +137,37 @@
 {
 	class: com.mygdx.game.ui.Gameover$Player
 	name: Player 0
-	score: 400
+	score: 870
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 670
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 670
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 670
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 670
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 670
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 640
 }
 {
 	class: com.mygdx.game.ui.Gameover$Player
@@ -193,6 +188,31 @@
 	class: com.mygdx.game.ui.Gameover$Player
 	name: Player 0
 	score: 400
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 400
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 390
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 390
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 390
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 390
 }
 {
 	class: com.mygdx.game.ui.Gameover$Player
@@ -202,26 +222,6 @@
 {
 	class: com.mygdx.game.ui.Gameover$Player
 	name: Player 0
-	score: 390
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 390
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 390
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 390
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
 	score: 270
 }
 {
@@ -243,6 +243,26 @@
 	class: com.mygdx.game.ui.Gameover$Player
 	name: Player 0
 	score: 270
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 240
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 240
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 240
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 240
 }
 {
 	class: com.mygdx.game.ui.Gameover$Player
@@ -273,31 +293,6 @@
 	class: com.mygdx.game.ui.Gameover$Player
 	name: Player 0
 	score: 200
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 120
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 120
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 120
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 120
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 120
 }
 {
 	class: com.mygdx.game.ui.Gameover$Player
@@ -378,6 +373,101 @@
 	class: com.mygdx.game.ui.Gameover$Player
 	name: Player 0
 	score: 140
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 120
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 120
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 120
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 120
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 120
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 120
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 120
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 120
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 120
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 120
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 110
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 110
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 110
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 110
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 100
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 100
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 100
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 100
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 100
 }
 {
 	class: com.mygdx.game.ui.Gameover$Player
@@ -857,1137 +947,1162 @@
 {
 	class: com.mygdx.game.ui.Gameover$Player
 	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 10
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
-	score: 0
-}
-{
-	class: com.mygdx.game.ui.Gameover$Player
-	name: Player 0
 	score: 20
 }
 {
 	class: com.mygdx.game.ui.Gameover$Player
 	name: Player 0
 	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 10
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
+}
+{
+	class: com.mygdx.game.ui.Gameover$Player
+	name: Player 0
+	score: 0
 }
 {
 	class: com.mygdx.game.ui.Gameover$Player

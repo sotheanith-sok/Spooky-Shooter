@@ -79,10 +79,6 @@ public class GameScreen extends ScreenAdapter {
       batch.end();
       engine.update(delta);
       timer += (delta * MathUtils.random(100));
-      // The lower this
-      // number   vv  the more often enemies spawn
-      if (timer % 10 == 0)
-         Factory.getFactory().spawnEnemy(MathUtils.random(10f,110f),MathUtils.random(30f,60f));
       ui.draw();
       if (Gdx.input.isKeyJustPressed(Input.Keys.G)) {
          endGame();

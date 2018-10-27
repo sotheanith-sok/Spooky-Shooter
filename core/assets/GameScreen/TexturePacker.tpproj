@@ -30,8 +30,46 @@ bleed=true
 limitMemory=true
 useIndexes=true
 
-scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
+scaleFactors=[{suffix:"",factor:1}]
 inputFiles=[{path:Gfx/Player_0_0.png,type:Input,regionName:null},{path:Gfx/Player_2_3.png,type:Input,regionName:null},{path:Gfx/Player_1_0.png,type:Input,regionName:null},{path:Gfx/Player_2_0.png,type:Input,regionName:null},{path:Gfx/Player_2_2.png,type:Input,regionName:null}]
+
+
+---
+
+name=Effects
+filename=
+output=.
+
+alias=true
+alphaThreshold=0
+debug=false
+duplicatePadding=false
+edgePadding=true
+fast=false
+filterMag=Nearest
+filterMin=Nearest
+ignoreBlankImages=true
+maxHeight=2048
+maxWidth=2048
+minHeight=16
+minWidth=16
+paddingX=2
+paddingY=2
+pot=true
+rotation=false
+stripWhitespaceX=false
+stripWhitespaceY=false
+wrapX=ClampToEdge
+wrapY=ClampToEdge
+premultiplyAlpha=false
+grid=false
+square=false
+bleed=true
+limitMemory=true
+useIndexes=true
+
+scaleFactors=[{suffix:"",factor:1}]
+inputFiles=[{path:Gfx/CandyCorn.png,type:Input,regionName:null},{path:Gfx/Circle.png,type:Input,regionName:null}]
 
 
 ---
@@ -68,7 +106,7 @@ bleed=true
 limitMemory=true
 useIndexes=true
 
-scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
+scaleFactors=[{suffix:"",factor:1}]
 inputFiles=[{path:Gfx/Bullet_0_0.png,type:Input,regionName:null},{path:Gfx/Bullet_0_3.png,type:Input,regionName:null},{path:Gfx/Bullet_0_1.png,type:Input,regionName:null},{path:Gfx/Bullet_0_2.png,type:Input,regionName:null}]
 
 
@@ -106,7 +144,7 @@ bleed=true
 limitMemory=true
 useIndexes=true
 
-scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
+scaleFactors=[{suffix:"",factor:1}]
 inputFiles=[{path:Gfx/Enemies_0_1.png,type:Input,regionName:null},{path:Gfx/Enemies_0_3.png,type:Input,regionName:null},{path:Gfx/Enemies_0_2.png,type:Input,regionName:null}]
 
 
@@ -144,13 +182,13 @@ bleed=true
 limitMemory=true
 useIndexes=true
 
-scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
+scaleFactors=[{suffix:"",factor:1}]
 inputFiles=[{path:Gfx/Laser_0_0.png,type:Input,regionName:null}]
 
 
 -PROJ-
 
-version=4.7.3
+version=4.6.0
 fileTypeType=png
 fileTypeData={encoding:RGBA8888}
 previewBackgroundColor=ffffffff

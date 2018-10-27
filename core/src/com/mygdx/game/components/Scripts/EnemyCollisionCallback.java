@@ -2,12 +2,14 @@ package com.mygdx.game.components.Scripts;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.utils.Pool;
+import com.mygdx.game.components.BodyComponent;
 import com.mygdx.game.components.EnemyStatsComponent;
 import com.mygdx.game.components.IsBulletComponent;
 import com.mygdx.game.components.IsLaserComponent;
 import com.mygdx.game.components.NeedToRemoveComponent;
 import com.mygdx.game.entities.Factory;
 import com.mygdx.game.screens.GameScreen;
+import com.mygdx.game.utilities.ParticleEffectManager;
 
 public class EnemyCollisionCallback  implements CollisionCallback, Pool.Poolable {
 
@@ -19,6 +21,10 @@ public class EnemyCollisionCallback  implements CollisionCallback, Pool.Poolable
              otherObject.add(Factory.getFactory().getEngine().createComponent(NeedToRemoveComponent.class));
           }
           else {
+             Factory.getFactory().createParticleEffect(ParticleEffectManager.CANDYCORNEXPLOSION,
+                  thisObject.getComponent(BodyComponent.class).body.getPosition().x,
+                  thisObject.getComponent(BodyComponent.class).body.getPosition().y
+          );
              updateScore(otherObject.getComponent(IsBulletComponent.class).playerNum);
              thisObject.add(Factory.getFactory().getEngine().createComponent(NeedToRemoveComponent.class));
              otherObject.add(Factory.getFactory().getEngine().createComponent(NeedToRemoveComponent.class));
@@ -31,6 +37,11 @@ public class EnemyCollisionCallback  implements CollisionCallback, Pool.Poolable
          }
          else {
             updateScore(otherObject.getComponent(IsLaserComponent.class).playerNum);
+         Factory.getFactory().createParticleEffect(ParticleEffectManager.CANDYCORNEXPLOSION,
+                 thisObject.getComponent(BodyComponent.class).body.getPosition().x,
+                 thisObject.getComponent(BodyComponent.class).body.getPosition().y
+         );
+
             thisObject.add(Factory.getFactory().getEngine().createComponent(NeedToRemoveComponent.class));
          }
       }

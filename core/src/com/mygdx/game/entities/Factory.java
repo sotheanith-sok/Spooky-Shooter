@@ -4,11 +4,9 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.PooledEngine;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.assets.loaders.ParticleEffectLoader;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.utils.Array;
@@ -23,6 +21,7 @@ import com.mygdx.game.systems.PhysicsDebugSystem;
 import com.mygdx.game.systems.PhysicsSystem;
 import com.mygdx.game.systems.RenderingSystem;
 import com.mygdx.game.utilities.BehaviorBuilder;
+import com.mygdx.game.utilities.ParticleEffectManager;
 import com.mygdx.game.utilities.Utilities;
 
 public class Factory {
@@ -67,6 +66,8 @@ public class Factory {
     * Default Constructor
     */
 
+   private ParticleEffectManager particleEffectManager;
+
    public Entity player;
    private Factory() {
       assetManager = new AssetManager(); //Declare AssetManager
@@ -81,10 +82,10 @@ public class Factory {
       camera.position.set(Utilities.FRUSTUM_WIDTH / 2f, Utilities.FRUSTUM_HEIGHT / 2f, 0);
 
       bodyEditorLoader = new BodyEditorLoader(Gdx.files.internal("GameScreen/HitboxData.json"));//Declare hitbox loader
-
       engine = new PooledEngine(); //Ashely engine
        //Load systems into engine
       loadSystemsIntoEngine();
+      loadParticleEffects();
    }
 
    /**
@@ -113,10 +114,17 @@ public class Factory {
     * Load predetermine assets into AssetManager.
     */
    private void loadAssets() {
+      //Loading normal texture
       assetManager.load("GameScreen/Player.atlas", TextureAtlas.class);
       assetManager.load("GameScreen/Laser.atlas",TextureAtlas.class);
       assetManager.load("GameScreen/Enemies.atlas",TextureAtlas.class);
       assetManager.load("GameScreen/Bullet.atlas",TextureAtlas.class);
+
+      //Loading assets
+      ParticleEffectLoader.ParticleEffectParameter particleEffectParameter= new ParticleEffectLoader.ParticleEffectParameter();
+      particleEffectParameter.atlasFile="GameScreen/Effects.atlas";
+      assetManager.load("GameScreen/Effects/CandyCornExplode.p",ParticleEffect.class,particleEffectParameter);
+      assetManager.load("GameScreen/Effects/SmokeTrail.p",ParticleEffect.class,particleEffectParameter);
       assetManager.finishLoading();
    }
 
@@ -165,6 +173,7 @@ public class Factory {
       applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_PLAYER, Utilities.MASK_PLAYER,false);
       entity.getComponent(SteeringComponent.class).body=entity.getComponent(BodyComponent.class).body;
       this.player=entity;
+
       return entity;
    }
 
@@ -189,7 +198,13 @@ public class Factory {
       entity.getComponent(TransformComponent.class).scale.y = 0.5f;
       entity.getComponent(BodyComponent.class).body.setUserData(entity);
        applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_PLAYER_PROJECTILE, Utilities.MASK_PLAYER_PROJECTILE,true);
-      engine.addEntity(entity);
+       engine.addEntity(entity);
+
+       //Add particle to bullet
+      entity.add(engine.createComponent(ParticleEffectComponent.class));
+      Entity particle=createParticleEffect(ParticleEffectManager.SMOKETRIAL,entity.getComponent(BodyComponent.class));
+      particle.getComponent(ParticleEffectDataComponent.class).isLooped=true;
+      entity.getComponent(ParticleEffectComponent.class).effect= particle;
        return entity;
    }
 
@@ -293,6 +308,7 @@ public class Factory {
       new CollisionCallbackSystem(world);
       engine.addSystem(new DetectEndGameSystem());
       engine.addSystem(new EnemyFireSystem());
+      engine.addSystem(new ParticleEffectSystem(spriteBatch,camera));
    }
 
    /**
@@ -407,4 +423,46 @@ public class Factory {
       engine.addEntity(entity);
       return entity;
    }
+
+   public void loadParticleEffects(){
+      particleEffectManager=new ParticleEffectManager();
+      particleEffectManager.addParticleEffect(
+              ParticleEffectManager.CANDYCORNEXPLOSION,assetManager.get("GameScreen/Effects/CandyCornExplode.p",
+                      ParticleEffect.class),
+              1/5f);
+      particleEffectManager.addParticleEffect(
+              ParticleEffectManager.SMOKETRIAL,assetManager.get("GameScreen/Effects/SmokeTrail.p",
+                      ParticleEffect.class),
+              1/5f);
+   }
+
+   public Entity createParticleEffect(int type, float x, float y){
+      Entity entity=engine.createEntity();
+      ParticleEffectDataComponent particleEffectComponent=engine.createComponent(ParticleEffectDataComponent.class);
+      particleEffectComponent.particleEffect=particleEffectManager.getPooledParticleEffect(type);
+      particleEffectComponent.particleEffect.setPosition(x,y);
+      entity.add(particleEffectComponent);
+      engine.addEntity(entity);
+      return entity;
+   }
+
+   public Entity createParticleEffect(int type, BodyComponent bodyComponent){
+      return createParticleEffect(type,bodyComponent,0f,0f);
+   }
+
+   public Entity createParticleEffect(int type, BodyComponent bodyComponent, float xOffSet, float yOffset) {
+      Entity entity = engine.createEntity();
+      ParticleEffectDataComponent particleEffectComponent = engine.createComponent(ParticleEffectDataComponent.class);
+      particleEffectComponent.particleEffect = particleEffectManager.getPooledParticleEffect(type);
+      particleEffectComponent.particleEffect.setPosition(bodyComponent.body.getPosition().x, bodyComponent.body.getPosition().y);
+      particleEffectComponent.particleEffect.getEmitters().first().setAttached(true); //manually attach for testing
+      particleEffectComponent.xOffset = xOffSet;
+      particleEffectComponent.yOffset = yOffset;
+      particleEffectComponent.isAttached = true;
+      particleEffectComponent.attachedBody = bodyComponent.body;
+      entity.add(particleEffectComponent);
+      engine.addEntity(entity);
+      return entity;
+   }
+
 }

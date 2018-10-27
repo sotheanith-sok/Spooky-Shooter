@@ -1,26 +1,26 @@
 
 Enemies.png
-size: 64,256
+size: 128,128
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 Enemies_0
   rotate: false
-  xy: 2, 134
+  xy: 2, 2
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 1
 Enemies_0
   rotate: false
-  xy: 2, 68
+  xy: 36, 2
   size: 32, 64
   orig: 32, 64
   offset: 0, 0
   index: 2
 Enemies_0
   rotate: false
-  xy: 2, 2
+  xy: 70, 2
   size: 32, 64
   orig: 32, 64
   offset: 0, 0

@@ -6,7 +6,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.utils.Array;
@@ -28,11 +30,13 @@ public class GameScreen extends ScreenAdapter {
    long timer = 0;
    public int score0, score1, score2, score3 = 0;
    int numPlayers;
+   Texture background;
    /**
     * This is the reference to the game object.
     */
    private Game myGame;
    private PooledEngine engine;
+   private float counter = 1f;
 
    /**
     * Constructor for this screen
@@ -46,6 +50,10 @@ public class GameScreen extends ScreenAdapter {
       Factory.getFactory().createEntities(playerCount);
       numPlayers = playerCount;
       gameScreen = this;
+      background = new Texture("GameScreen/sexyBackground.png");
+      batch = Factory.getFactory().getSpriteBatch();
+      counter++;
+//GameScreen/Gfx/fourthScreen.jpg
    }
 
    /**
@@ -66,10 +74,22 @@ public class GameScreen extends ScreenAdapter {
    public void render(float delta) {
       Gdx.gl.glClearColor(0, 0, 0, 1);
       Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+      batch.begin();
+      batch.draw(background,0, counter,Utilities.FRUSTUM_WIDTH, Utilities.FRUSTUM_HEIGHT);
+      batch.end();
       engine.update(delta);
+      timer += (delta * MathUtils.random(100));
+      // The lower this
+      // number   vv  the more often enemies spawn
+      if (timer % 10 == 0)
+         Factory.getFactory().spawnEnemy(MathUtils.random(10f,110f),MathUtils.random(30f,60f));
       ui.draw();
       if (Gdx.input.isKeyJustPressed(Input.Keys.G)) {
          endGame();
+      }
+      counter -= 0.2;
+      if(counter < -2.2){
+         counter = 1f;
       }
    }
 

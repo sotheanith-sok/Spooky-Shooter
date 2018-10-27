@@ -42,7 +42,7 @@ public class Gameover extends Stage {
       handle = Gdx.files.local(path);
       players=new Array<Player>();
       if(!handle.exists()){
-         handle.writeString("",false);
+         handle.writeString("[]",false);
       }
 
       label.setAlignment(Align.center);

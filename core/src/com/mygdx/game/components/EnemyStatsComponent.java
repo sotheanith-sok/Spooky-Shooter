@@ -1,6 +1,7 @@
 package com.mygdx.game.components;
 
 import com.badlogic.ashley.core.Component;
+import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.utils.Pool;
 
 public class EnemyStatsComponent implements Component, Pool.Poolable {
@@ -10,6 +11,8 @@ public class EnemyStatsComponent implements Component, Pool.Poolable {
    public float timer=0f;
    public float speed=10f;
    public int health;
+   public Entity target;
+   public boolean aimedAtTarget=false;
    /**
     * Resets the object for reuse. Object references should be nulled and fields may be set to default values.
     */
@@ -19,5 +22,7 @@ public class EnemyStatsComponent implements Component, Pool.Poolable {
       shoot=false;
       timer=0;
       speed=10f;
+      target=null;
+      aimedAtTarget=false;
    }
 }

@@ -6,8 +6,13 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IntervalSystem;
 import com.badlogic.ashley.utils.ImmutableArray;
+import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
 import com.mygdx.game.components.BodyComponent;
 import com.mygdx.game.components.EnemyStatsComponent;
+import com.mygdx.game.components.IsPlayerComponent;
+import com.mygdx.game.components.NeedToRemoveComponent;
 import com.mygdx.game.entities.Factory;
 import com.mygdx.game.utilities.Utilities;
 
@@ -38,7 +43,26 @@ public class EnemyFireSystem extends IntervalSystem {
          es.timer+=Utilities.MAX_STEP_TIME;
          if(es.shoot==true && es.timer>=es.rof){
             Entity bullet =Factory.getFactory().createEnemyBullet(bc.body.getPosition().x, bc.body.getPosition().y);
-            bullet.getComponent(BodyComponent.class).body.setLinearVelocity(0f,-es.speed);
+            ComponentMapper<IsPlayerComponent> isPlayerComponentComponentMapper=ComponentMapper.getFor(IsPlayerComponent.class);
+            if(es.aimedAtTarget=true && es.target!=null){
+               if(isPlayerComponentComponentMapper.get(es.target)==null){
+                  es.aimedAtTarget=false;
+                  es.target=null;
+                  bullet.getComponent(BodyComponent.class).body.setLinearVelocity(0f,-es.speed);
+               }else{
+                  Body body=bullet.getComponent(BodyComponent.class).body;
+                  Body tBody= es.target.getComponent(BodyComponent.class).body;
+                  double x1 = tBody.getPosition().x-body.getPosition().x;
+                  double y1 = tBody.getPosition().y-body.getPosition().y;
+                  double length= Math.sqrt(x1*x1+ y1*y1);
+                  x1=x1/length;
+                  y1=y1/length;
+                  body.setLinearVelocity((float)x1*Math.abs(es.speed),(float)y1*Math.abs(es.speed));
+                  body.setTransform(body.getPosition(),Utilities.vectorToAngle(new Vector2((float)-x1,(float)-y1)));
+               }
+            }else{
+               bullet.getComponent(BodyComponent.class).body.setLinearVelocity(0f,-es.speed);
+            }
             es.timer=0;
          }
       }

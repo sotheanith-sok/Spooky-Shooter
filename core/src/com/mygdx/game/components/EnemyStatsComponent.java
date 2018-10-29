@@ -13,6 +13,7 @@ public class EnemyStatsComponent implements Component, Pool.Poolable {
    public int health;
    public Entity target;
    public boolean aimedAtTarget=false;
+   public int bulletType=0;
    /**
     * Resets the object for reuse. Object references should be nulled and fields may be set to default values.
     */
@@ -24,5 +25,6 @@ public class EnemyStatsComponent implements Component, Pool.Poolable {
       speed=10f;
       target=null;
       aimedAtTarget=false;
+      bulletType=0;
    }
 }

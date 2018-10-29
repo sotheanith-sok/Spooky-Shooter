@@ -42,7 +42,7 @@ public class EnemyFireSystem extends IntervalSystem {
          BodyComponent bc=bcm.get(entity);
          es.timer+=Utilities.MAX_STEP_TIME;
          if(es.shoot==true && es.timer>=es.rof){
-            Entity bullet =Factory.getFactory().createEnemyBullet(bc.body.getPosition().x, bc.body.getPosition().y);
+            Entity bullet =Factory.getFactory().createEnemyBullet(bc.body.getPosition().x, bc.body.getPosition().y,es.bulletType);
             ComponentMapper<IsPlayerComponent> isPlayerComponentComponentMapper=ComponentMapper.getFor(IsPlayerComponent.class);
             if(es.aimedAtTarget=true && es.target!=null){
                if(isPlayerComponentComponentMapper.get(es.target)==null){

@@ -293,5 +293,10 @@ public class SteeringComponent implements Steerable<Vector2>, Component, Pool.Po
    public void reset() {
       body=null;
       steeringBehavior=null;
+      maxLinearSpeed = 30f;	// stores the max speed the entity can go
+      maxLinearAcceleration = 20f;	// stores the max acceleration
+      maxAngularSpeed =50f;		// the max turning speed
+      maxAngularAcceleration = 12f;// the max turning acceleration
+      zeroThreshold = 0.1f;
    }
 }

@@ -30,7 +30,7 @@ bleed=true
 limitMemory=true
 useIndexes=true
 
-scaleFactors=[{suffix:"",factor:1}]
+scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
 inputFiles=[{path:Gfx/Player_0_0.png,type:Input,regionName:null},{path:Gfx/Player_2_3.png,type:Input,regionName:null},{path:Gfx/Player_1_0.png,type:Input,regionName:null},{path:Gfx/Player_2_0.png,type:Input,regionName:null},{path:Gfx/Player_2_2.png,type:Input,regionName:null}]
 
 
@@ -68,7 +68,7 @@ bleed=true
 limitMemory=true
 useIndexes=true
 
-scaleFactors=[{suffix:"",factor:1}]
+scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
 inputFiles=[{path:Gfx/CandyCorn.png,type:Input,regionName:null},{path:Gfx/Circle.png,type:Input,regionName:null}]
 
 
@@ -106,8 +106,8 @@ bleed=true
 limitMemory=true
 useIndexes=true
 
-scaleFactors=[{suffix:"",factor:1}]
-inputFiles=[{path:Gfx/Bullet_0_0.png,type:Input,regionName:null},{path:Gfx/Bullet_0_3.png,type:Input,regionName:null},{path:Gfx/Bullet_0_1.png,type:Input,regionName:null},{path:Gfx/Bullet_0_2.png,type:Input,regionName:null}]
+scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
+inputFiles=[{path:Gfx/Bullet_0_0.png,type:Input,regionName:null},{path:Gfx/Bullet_0_3.png,type:Input,regionName:null},{path:Gfx/Bullet_0_1.png,type:Input,regionName:null},{path:Gfx/Bullet_0_2.png,type:Input,regionName:null},{path:Gfx/Bullet_1_0.png,type:Input,regionName:null},{path:Gfx/Bullet_1_5.png,type:Input,regionName:null},{path:Gfx/Bullet_1_1.png,type:Input,regionName:null},{path:Gfx/Bullet_1_2.png,type:Input,regionName:null},{path:Gfx/Bullet_1_3.png,type:Input,regionName:null},{path:Gfx/Bullet_1_4.png,type:Input,regionName:null}]
 
 
 ---
@@ -144,8 +144,8 @@ bleed=true
 limitMemory=true
 useIndexes=true
 
-scaleFactors=[{suffix:"",factor:1}]
-inputFiles=[{path:Gfx/Enemies_0_1.png,type:Input,regionName:null},{path:Gfx/Enemies_0_3.png,type:Input,regionName:null},{path:Gfx/Enemies_0_2.png,type:Input,regionName:null}]
+scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
+inputFiles=[{path:Gfx/Enemies_0_1.png,type:Input,regionName:null},{path:Gfx/Enemies_0_3.png,type:Input,regionName:null},{path:Gfx/Enemies_0_2.png,type:Input,regionName:null},{path:Gfx/Enemies_1_0.png,type:Input,regionName:null},{path:Gfx/Enemies_1_2.png,type:Input,regionName:null},{path:Gfx/Enemies_1_1.png,type:Input,regionName:null}]
 
 
 ---
@@ -182,13 +182,13 @@ bleed=true
 limitMemory=true
 useIndexes=true
 
-scaleFactors=[{suffix:"",factor:1}]
+scaleFactors=[{suffix:"",factor:1,resampling:bicubic}]
 inputFiles=[{path:Gfx/Laser_0_0.png,type:Input,regionName:null}]
 
 
 -PROJ-
 
-version=4.6.0
+version=4.7.3
 fileTypeType=png
 fileTypeData={encoding:RGBA8888}
 previewBackgroundColor=ffffffff

@@ -82,6 +82,8 @@ public class Factory {
     * Array contains players in our engine.
     */
    public ImmutableArray<Entity> players;
+   public ImmutableArray<Entity> bullets;
+   public ImmutableArray<Entity> enemies;
 
    /**
     * Array contains boss in our engine.
@@ -93,6 +95,7 @@ public class Factory {
     */
    private AnimationManager animationManager;
 
+   public int nextBullet;
 
    private Factory() {
       assetManager = new AssetManager(); //Declare AssetManager
@@ -107,11 +110,13 @@ public class Factory {
       camera.position.set(Utilities.FRUSTUM_WIDTH / 2f, Utilities.FRUSTUM_HEIGHT / 2f, 0);
 
       bodyEditorLoader = new BodyEditorLoader(Gdx.files.internal("GameScreen/HitboxData.json"));//Declare hitbox loader
-      engine = new PooledEngine(10,500,500,500); //Ashely engine
+      engine = new PooledEngine(10,2000,10,2000); //Ashely engine
        //Load systems into engine
       loadSystemsIntoEngine();
       loadParticleEffects();
       players=engine.getEntitiesFor(Family.all(IsPlayerComponent.class).get());
+      bullets=engine.getEntitiesFor(Family.all(IsBulletComponent.class).get());
+      enemies =engine.getEntitiesFor(Family.all(IsEnemyComponent.class).get());
       boss=engine.getEntitiesFor(Family.all(IsBossComponent.class).get());
       animationManager=new AnimationManager();
    }
@@ -210,33 +215,43 @@ public class Factory {
     *
     * @return a bullet.
     */
-   public Entity shoot(float x, float y, int playerNum) {
+   public void shoot(float x, float y, int playerNum) {
+      bullets.get(nextBullet).getComponent(IsBulletComponent.class).playerNum = playerNum;
+      bullets.get(nextBullet).getComponent(BodyComponent.class).body.setTransform(x,y,0);
+      bullets.get(nextBullet++).getComponent(BodyComponent.class).body.setLinearVelocity(0,50f);
+      if(nextBullet > 300) nextBullet = 0;
+      bullets.get(nextBullet).getComponent(IsBulletComponent.class).playerNum = playerNum;
+      bullets.get(nextBullet).getComponent(BodyComponent.class).body.setTransform(x -0.5f,y,0);
+      bullets.get(nextBullet++).getComponent(BodyComponent.class).body.setLinearVelocity(-1.5f,50f);
+      if(nextBullet > 300) nextBullet = 0;
+      bullets.get(nextBullet).getComponent(IsBulletComponent.class).playerNum = playerNum;
+      bullets.get(nextBullet).getComponent(BodyComponent.class).body.setTransform(x+0.5f,y,0);
+      bullets.get(nextBullet++).getComponent(BodyComponent.class).body.setLinearVelocity(1.5f,50f);
+      if(nextBullet > 300) nextBullet = 0;
+   }
+
+   public Entity createBullet(float x, float y) {
       Entity entity = engine.createEntity();
-      entity.add(engine.createComponent(MovementComponent.class));
       entity.add(engine.createComponent(BulletVelocityStatComponent.class));
       entity.add(engine.createComponent(TransformComponent.class));
       entity.add(engine.createComponent(BodyComponent.class));
       entity.add(engine.createComponent(TextureComponent.class));
       entity.add(engine.createComponent(IsBulletComponent.class));
-      entity.getComponent(IsBulletComponent.class).playerNum = playerNum;
       entity.getComponent(TextureComponent.class).textureRegionAnimation = createTexture("GameScreen/Player.atlas", "Player_1", 1);
       entity.getComponent(TextureComponent.class).name="Player_1";
       entity.getComponent(BodyComponent.class).body = createBody("Player_1", x, y, 0.35f);
       entity.getComponent(TransformComponent.class).scale.x = 0.5f;
       entity.getComponent(TransformComponent.class).scale.y = 0.5f;
       entity.getComponent(BodyComponent.class).body.setUserData(entity);
-       applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_PLAYER_PROJECTILE, Utilities.MASK_PLAYER_PROJECTILE,true);
-       engine.addEntity(entity);
+      applyCollisionFilter(entity.getComponent(BodyComponent.class).body, Utilities.CATEGORY_PLAYER_PROJECTILE, Utilities.MASK_PLAYER_PROJECTILE,true);
 
-       //Add particle to bullet
+      //Add particle to bullet
       entity.add(engine.createComponent(ParticleEffectComponent.class));
       Entity particle=createParticleEffect(ParticleEffectManager.SMOKETRIAL,entity.getComponent(BodyComponent.class));
       particle.getComponent(ParticleEffectDataComponent.class).isLooped=true;
       entity.getComponent(ParticleEffectComponent.class).effect= particle;
 
-
-
-       return entity;
+      return entity;
    }
 
    /**
@@ -397,6 +412,10 @@ public class Factory {
          int num = 2+i;
          String s ="Player_"+num;
          engine.addEntity(createPlayer(s, 10 + (i * 10), 10, i));
+      }
+
+      for (int i = 0; i < 500; i++) {
+         engine.addEntity(createBullet(30, 30));
       }
 
       //Player boundary

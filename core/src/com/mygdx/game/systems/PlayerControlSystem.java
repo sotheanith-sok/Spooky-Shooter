@@ -14,6 +14,9 @@ import com.mygdx.game.components.IsPlayerComponent;
 import com.mygdx.game.components.MovementComponent;
 import com.mygdx.game.utilities.Utilities;
 
+/**
+ * A system responsible for translate raw input into in-game input
+ */
 public class PlayerControlSystem extends IntervalSystem {
    ImmutableArray<Entity> entities;
    private ComponentMapper<MovementComponent> mm;

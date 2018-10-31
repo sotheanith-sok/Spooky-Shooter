@@ -10,6 +10,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 import com.mygdx.game.components.ParticleEffectDataComponent;
 
+/**
+ * A system responsible for rendering particle effects
+ */
 public class ParticleEffectSystem extends IteratingSystem {
    private static final boolean shouldRender = true;
 

@@ -8,6 +8,9 @@ import com.mygdx.game.components.Scripts.EnemyCollisionCallback;
 import com.mygdx.game.components.Scripts.InvisibleWallCollisionCallback;
 import com.mygdx.game.components.Scripts.PlayerCollisionCallback;
 
+/**
+ * This component stores the callback that show occur when collision happen
+ */
 public class CollisionCallbackComponent implements Component , Pool.Poolable {
    public CollisionCallback beginContactCallback=null;
    public CollisionCallback endContactCallback=null;

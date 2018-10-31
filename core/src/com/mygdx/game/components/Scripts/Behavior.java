@@ -3,6 +3,9 @@ package com.mygdx.game.components.Scripts;
 
 import com.badlogic.ashley.core.Entity;
 
+/**
+ * An abstract class related to a behavior
+ */
 public abstract class Behavior {
    protected float posX,posY, time, rof;
    protected boolean isTrue;

@@ -13,6 +13,9 @@ import com.mygdx.game.components.MovementComponent;
 import com.mygdx.game.components.PlayerVelocityStatComponent;
 import com.mygdx.game.utilities.Utilities;
 
+/**
+ * A system responsible for updating players' velocity
+ */
 public class PlayerVelocitySystem extends IntervalSystem {
     private ImmutableArray<Entity> entities;
     private ComponentMapper<MovementComponent> mm;

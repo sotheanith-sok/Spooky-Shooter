@@ -11,9 +11,9 @@ import com.mygdx.game.components.EnemyStatsComponent;
 import com.mygdx.game.components.Scripts.Behavior;
 import com.mygdx.game.components.SteeringComponent;
 
-import javax.sound.sampled.FloatControl;
-
-
+/**
+ * Builder responsible for translation of behavior from txt to in-game data.
+ */
 public class BehaviorBuilder {
    private static BehaviorBuilder instance;
 

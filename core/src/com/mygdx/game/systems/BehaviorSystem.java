@@ -9,6 +9,9 @@ import com.mygdx.game.components.BodyComponent;
 import com.mygdx.game.components.SteeringComponent;
 import com.sun.javafx.css.Stylesheet;
 
+/**
+ * A system that run behavior related to an entity.
+ */
 public class BehaviorSystem extends IteratingSystem {
    private ComponentMapper<BehaviorComponent> bcm;
    public BehaviorSystem(){

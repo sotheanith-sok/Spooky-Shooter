@@ -4,6 +4,9 @@ import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.utils.Pool;
 
+/**
+ * This component stores particle effect that attached to this entity.
+ */
 public class ParticleEffectComponent  implements Component,Pool.Poolable {
    public Entity effect;
 

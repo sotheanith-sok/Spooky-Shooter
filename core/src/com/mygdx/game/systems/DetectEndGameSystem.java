@@ -9,6 +9,9 @@ import com.mygdx.game.components.IsPlayerComponent;
 import com.mygdx.game.screens.GameScreen;
 import com.mygdx.game.utilities.Utilities;
 
+/**
+ * A system that detect an end of the game.
+ */
 public class DetectEndGameSystem extends IntervalSystem {
 
    ImmutableArray<Entity> entities;

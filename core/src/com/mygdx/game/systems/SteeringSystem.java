@@ -8,6 +8,9 @@ import com.badlogic.gdx.ai.GdxAI;
 import com.mygdx.game.components.SteeringComponent;
 import com.mygdx.game.utilities.SteeringPresets;
 
+/**
+ * A system responsible for AI.
+ */
 public class SteeringSystem extends IteratingSystem {
 
    private ComponentMapper<SteeringComponent> steeringComponentComponentMapper;

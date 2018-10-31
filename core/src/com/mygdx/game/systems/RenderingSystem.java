@@ -18,6 +18,9 @@ import com.mygdx.game.utilities.Utilities;
 
 import java.util.Comparator;
 
+/**
+ * A system responsible for rendering entities
+ */
 public class RenderingSystem extends SortedIteratingSystem {
 
    /**

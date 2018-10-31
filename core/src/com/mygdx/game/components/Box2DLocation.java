@@ -4,6 +4,9 @@ import com.badlogic.gdx.ai.utils.Location;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.utilities.Utilities;
 
+/**
+ * Location related to Box2D
+ */
 
 public class Box2DLocation implements Location<Vector2> {
 

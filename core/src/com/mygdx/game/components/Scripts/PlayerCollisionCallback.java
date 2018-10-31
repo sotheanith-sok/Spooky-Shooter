@@ -7,6 +7,9 @@ import com.mygdx.game.components.IsEnemyComponent;
 import com.mygdx.game.components.NeedToRemoveComponent;
 import com.mygdx.game.entities.Factory;
 
+/**
+ * A collision callback for a player.
+ */
 public class PlayerCollisionCallback implements CollisionCallback, Pool.Poolable {
 
    @Override

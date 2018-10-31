@@ -3,7 +3,9 @@ package com.mygdx.game.components;
 import com.badlogic.ashley.core.Component;
 import com.badlogic.gdx.utils.Pool;
 
-
+/**
+ * This component indicates a player.
+ */
 public class IsPlayerComponent implements Component , Pool.Poolable {
     public boolean isPlayer0, isPlayer1, isPlayer2, isPlayer3 = false;
     public int playerNum=-1;

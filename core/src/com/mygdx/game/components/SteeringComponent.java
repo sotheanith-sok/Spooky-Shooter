@@ -11,15 +11,19 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.utils.Pool;
 import com.mygdx.game.utilities.Utilities;
 
+/**
+ * This component stores variables related AI behavior
+ */
 public class SteeringComponent implements Steerable<Vector2>, Component, Pool.Poolable {
   public Body body;
 
+   public float scale=1;
    // Steering data
    float maxLinearSpeed = 30f;	// stores the max speed the entity can go
    float maxLinearAcceleration = 20f;	// stores the max acceleration
    float maxAngularSpeed =50f;		// the max turning speed
    float maxAngularAcceleration = 12f;// the max turning acceleration
-   float zeroThreshold = 0.1f;	// how accurate should checks be (0.0000001f will mean the entity must get within 0.0000001f of
+   float zeroThreshold = 0.01f;	// how accurate should checks be (0.0000001f will mean the entity must get within 0.0000001f of
 
    // target location. This will cause problems as our entities travel pretty fast and can easily over or undershoot this.)
    public SteeringBehavior<Vector2> steeringBehavior; // stors the action behaviour
@@ -53,7 +57,7 @@ public class SteeringComponent implements Steerable<Vector2>, Component, Pool.Po
       //Update position and linear velocity.
       if(!steeringOutput.linear.isZero()){
          //This method internally scales the force by deltaTime
-         body.applyForceToCenter(steeringOutput.linear,true);
+         body.applyForceToCenter(steeringOutput.linear.scl(scale),true);
          anyAccelerations=true;
       }
       //Update orientation and angular velocity

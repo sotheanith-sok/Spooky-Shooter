@@ -4,6 +4,9 @@ import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.ParticleEffectPool;
 import com.badlogic.gdx.utils.IntMap;
 
+/**
+ * A manager manages particle effects
+ */
 public class ParticleEffectManager {
    // DEFINE constants for particleEffects
    public static final int CANDYCORNEXPLOSION = 0;

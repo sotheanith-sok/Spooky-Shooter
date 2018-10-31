@@ -5,6 +5,9 @@ import com.badlogic.gdx.graphics.g2d.ParticleEffectPool;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.utils.Pool;
 
+/**
+ * This component stores variable related to a particle effect.
+ */
 public class ParticleEffectDataComponent implements Component,Pool.Poolable {
    public ParticleEffectPool.PooledEffect particleEffect;
    public boolean isAttached =false;

@@ -4,6 +4,9 @@ import com.badlogic.ashley.core.Component;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.utils.Pool;
 
+/**
+ * This component stores variables related to an enemy.
+ */
 public class EnemyStatsComponent implements Component, Pool.Poolable {
 
    public float rof = 1f;

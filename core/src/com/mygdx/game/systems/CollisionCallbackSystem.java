@@ -5,6 +5,9 @@ import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.physics.box2d.*;
 import com.mygdx.game.components.CollisionCallbackComponent;
 
+/**
+ * A system responsible for calling a collision callback
+ */
 public class CollisionCallbackSystem implements ContactListener {
 
    private World world;

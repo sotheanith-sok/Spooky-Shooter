@@ -3,6 +3,9 @@ package com.mygdx.game.components;
 import com.badlogic.ashley.core.Component;
 import com.badlogic.gdx.utils.Pool;
 
+/**
+ * This component stores data related to input of a player.
+ */
 public class MovementComponent implements Component, Pool.Poolable {
    public boolean moveLeft, moveRight, moveUp, moveDown, shot, secondary;
    public float moveX, moveY;

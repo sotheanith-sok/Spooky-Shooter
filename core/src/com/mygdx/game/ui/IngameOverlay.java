@@ -18,40 +18,29 @@ public class IngameOverlay extends Stage {
       this.playerCount=playerCount;
       labels=new Array<Label>();
       //Load skin in
-      skin = new Skin(Gdx.files.internal("Skins/shade/skin/uiskin.json"));
+      skin = new Skin(Gdx.files.internal("Skins/lml/skin/skin.json"));
 
 
 
       if( playerCount>=1){
-          createUI(0, Utilities.FRUSTUM_HEIGHT-4,true);
+          createUI(Utilities.FRUSTUM_WIDTH*0/4+10f, Utilities.FRUSTUM_HEIGHT-4,true);
       }
       if(playerCount>=2){
-          createUI(Utilities.FRUSTUM_WIDTH-23,Utilities.FRUSTUM_HEIGHT-4,false);
+          createUI(Utilities.FRUSTUM_WIDTH*1/4+10f,Utilities.FRUSTUM_HEIGHT-4,false);
       }
       if(playerCount>=3){
-          createUI(0,0,true);
+          createUI(Utilities.FRUSTUM_WIDTH*2/4+10f,Utilities.FRUSTUM_HEIGHT-4,true);
       }
       if(playerCount>=4){
-          createUI(Utilities.FRUSTUM_WIDTH-23,0,true);
+          createUI(Utilities.FRUSTUM_WIDTH*3/4+10f,Utilities.FRUSTUM_HEIGHT-4,true);
       }
-
-     /* if(playerCount>3){
-         createUI(Utilities.FRUSTUM_WIDTH-15,0,true);
-      }
-      if(playerCount>2){
-         createUI(0,0,true);
-      }
-      if(playerCount>1){
-         createUI(Utilities.FRUSTUM_WIDTH-15,Utilities.FRUSTUM_HEIGHT-4,false);
-      }
-      if(playerCount>0){
-         createUI(0, Utilities.FRUSTUM_HEIGHT-4,true);
-      }*/
    }
 
    private void createUI(float posX, float posY, boolean leftAlign){
-      Label label =new Label("LOL U HAVE NO POINTS NOW",skin,"title");
+      Label label =new Label("LOL U HAVE NO POINTS NOW",skin);
+      label.setFontScale(2f);
       label.setPosition(Utilities.MetersToPixels(posX),Utilities.MetersToPixels(posY));
+      label.setColor(label.getColor().r,label.getColor().g,label.getColor().b,1f);
       this.addActor(label);
       labels.add(label);
    }

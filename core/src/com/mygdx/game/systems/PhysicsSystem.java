@@ -13,7 +13,9 @@ import com.mygdx.game.components.BodyComponent;
 import com.mygdx.game.components.TransformComponent;
 import com.mygdx.game.utilities.Utilities;
 
-
+/**
+ * A system responsible for physic calculation
+ */
 public class PhysicsSystem extends IntervalSystem {
 
    ImmutableArray<Entity> entities;

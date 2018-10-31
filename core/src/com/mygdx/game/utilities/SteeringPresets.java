@@ -8,6 +8,9 @@ import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.components.Box2DLocation;
 import com.mygdx.game.components.SteeringComponent;
 
+/**
+ * A present of AI basic behavior.
+ */
 public class SteeringPresets {
 
    public static Arrive<Vector2> getArrive(SteeringComponent agent, SteeringComponent target){

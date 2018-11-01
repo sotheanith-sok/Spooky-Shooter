@@ -1,4 +1,10 @@
-# SpookyShooter
-This Halloween-themed shooter will be very spooky
+# Spooky Shooter
+#### Description:
+```
+A verticle shooter in a holloween theme with local-op supports designed using LIBGDX and Ashely framwork. 
+```
 
-This is a fork from the original project repo and it is intented for achieving purpose only. 
+#### Course:
+```
+CECS-491B @CSULB
+```

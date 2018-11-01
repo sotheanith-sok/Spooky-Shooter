@@ -1,7 +1,7 @@
 # Spooky Shooter
 #### Description:
 ```
-A verticle shooter in a holloween theme with local-op supports designed using LIBGDX and Ashely framwork. 
+A verticle shooter in a halloween theme with local-op supports designed using LIBGDX and Ashely framwork. 
 ```
 
 #### Course:

@@ -15,4 +15,4 @@ A verticle shooter in a halloween theme with local-op supports designed using LI
  - [Jose Vargas](https://github.com/jvargas7130)
 
 ## Course
- - [CECS 490B - Computer Engineering Senior Project II](http://catalog.csulb.edu/preview_course_nopop.php?catoid=5&coid=40088)
+ - [CECS 491B - Computer Science Senior Project II](http://catalog.csulb.edu/preview_course_nopop.php?catoid=5&coid=40090)

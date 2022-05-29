@@ -9,7 +9,7 @@ A verticle shooter in a halloween theme with local-op supports designed using LI
  - [Ashley](https://github.com/libgdx/ashley)
  
 ## Authors
- - [Sotheanith Sok](https://github.com/sotheanith)
+ - [Sotheanith Sok](https://github.com/sotheanith-sok)
  - [Tommy So](https://github.com/tommy8492nd)
  - [Rubin](https://github.com/rub3z)
  - [Jose Vargas](https://github.com/jvargas7130)
